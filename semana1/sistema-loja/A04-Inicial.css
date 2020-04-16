@@ -1,0 +1,47 @@
+body{
+    background-color: rgb(204,204,204);
+}
+
+a{
+    text-decoration: none;
+    color: rgb(63, 63, 63);
+}
+
+.rodape{
+    text-align: center;
+}
+#logo{
+    width: 200px;
+    height: 100px;
+    float: left;
+}
+
+#store{
+    display: inline-block;
+    margin-top: 40px;
+    margin-left: 100px;
+    
+}
+
+#bem-vindo{
+    display: inline;
+    margin-left: 100px;
+}
+
+#menu li{
+    text-decoration-color: none;
+    display: inline-block;
+    margin: 0px 30px;
+}
+
+#menu a:hover{
+    color: white;
+}
+
+#texto-branco{
+    color: white;
+}
+
+#texto-branco a:hover{
+    color:red;
+}
