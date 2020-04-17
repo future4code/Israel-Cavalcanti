@@ -1,0 +1,89 @@
+body{
+    font-family:Dosis;
+    font-size: 15pt;
+    margin:20px;
+}
+
+a{
+    text-decoration:none;
+    font-weight: bolder;
+}
+
+p{
+  margin: 0px 10px;  
+}
+
+h2{
+    margin: 10px 10px;
+}
+
+h3{
+    margin: 25px 10px 5px 10px;
+}
+
+h4{
+    margin: 20px 0px 10px 0px;
+}
+
+h5{
+    margin: 20px 10px 0px 10px;
+    font-size: 20px;
+}
+
+/*---- CABEÇALHO ---- */
+#logo{
+    width: 210px;
+    height: 55px;
+    float: left;
+    margin: 0px 50px
+}
+
+#menu-principal{
+    font-family:Dosis;
+    font-size: 15pt;
+    text-align: right;
+    margin: 30px 50px;   
+}
+
+#menu-principal li{
+    display: inline;
+    margin: 20px
+}
+
+#menu-principal a:visited{
+    color: black;
+}
+
+#menu-principal a:hover{
+    color:gray; 
+}
+
+#menu-principal a:active{
+    color: red;   
+}
+/*---- FIM CABEÇALHO ----*/
+#Formulario{
+    margin: 0px 10px;
+}
+/*---- SOBRE MIM ----*/
+
+
+/*---- FIM SOBRE MIM ----*/
+
+/*---- FORMAÇÃO ----*/
+/*---- FIM FORMAÇÃO----*/
+
+/*---- EXP PROFISSIONAL ----*/
+/*---- FIM EXP PROFISSIONAL----*/
+
+/*---- GALERIA PROJ ----*/
+/*---- FIM GALERIA PROJ----*/
+
+/*---- HABILIDADES ----*/
+/*---- FIM HABILIDADES----*/
+
+/*---- CONTATO ----*/
+/*---- FIM CONTATO----*/
+
+/*---- RODAPÉ ----*/
+/*---- FIM RODAPÉ----*/
