@@ -116,7 +116,7 @@ td button {
     background-color: #fadf63;
     width: 150px;
     height: 30px;
-    border-radius: 5px;
+    border-radius: 7px ;
     color: black;
 }
 
@@ -154,4 +154,11 @@ td button {
 }
 .container-imagens button:hover{
     background-color: #e2c74d;
+}
+
+#busca{
+    border: 2px solid gray;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
