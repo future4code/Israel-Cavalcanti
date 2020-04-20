@@ -25,10 +25,16 @@ button:focus {
     color: white;
 }
 
-
+img {
+    width: 100px;
+}
 
 div>p:first-child {
     display: inline;
+}
+
+div img {
+    background: black;
 }
 
 .botao-amarelo {
@@ -38,7 +44,6 @@ div>p:first-child {
     border-radius: 5px;
     font-size: 20px;
     color: white;
-       
 }
 
 .botao-amarelo:hover {
@@ -64,21 +69,6 @@ div>p:first-child {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
-    position: relative;
-    
-}
-
-#container-de-descricao p, h3{
-    position: relative;
-    color: white;
-    top: 150px; 
-}
-
-#primeiro-texto{
-    width: 190px;
-    height: 100px;
-    position: relative;
-    left: 490px;
 }
 
 #container-de-descricao>ol {
@@ -109,7 +99,6 @@ div:last-child {
 
 table {
     width: 60%;
-    text-align: center;
 }
 
 td button {
@@ -125,6 +114,7 @@ td button {
     height: 100px;
 }
 
+
 #back-button {
     background-color: white;
     width: 100px;
@@ -133,19 +123,8 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
-    margin-left: 510px;
 }
 
 #back-button:hover {
     background-color: #635a3d
 }
-
-#container-imagens{
-    width: 50px;
-    height: 50px;
-}
-
-#imagens{
-    width: 50px;
-}
-
