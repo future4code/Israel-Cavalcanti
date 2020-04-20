@@ -44,6 +44,7 @@ div img {
     border-radius: 5px;
     font-size: 20px;
     color: white;
+       
 }
 
 .botao-amarelo:hover {
@@ -69,8 +70,24 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
+    position: relative;
 }
 
+#container-de-descricao p, h3{
+    position: relative;
+    background-color: #2274a5;
+    color: white;
+    top: 200px;
+}
+
+/* 
+Somos uma empresa focada em tornar a compra de roupas mais fácil
+Ache os melhores descontos
+Busque pelos seus gostos
+Realize seus sonhos conosco */
+
+
+}
 #container-de-descricao>ol {
     padding: 15px 0px;
 }
