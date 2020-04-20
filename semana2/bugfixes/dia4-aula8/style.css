@@ -149,3 +149,9 @@ td button {
     width: 50px;
 }
 
+.container-imagens button:active{
+    color: white;
+}
+.container-imagens button:hover{
+    background-color: #e2c74d;
+}
