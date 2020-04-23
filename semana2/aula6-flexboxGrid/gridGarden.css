@@ -1,0 +1,128 @@
+#Level-1
+display: grid;
+grid-column-start: 3
+/* a água se moveu para a coluna 3 */
+
+#Level-2
+display: grid;
+grid-column-start: 5
+/* o veneno se moveu horizontalmente para a coluna 5 */
+
+#Level-3
+display: grid;
+grid-column-start: 1;
+grid-column-end: 4;
+/* a água preencheu horizontalmente até a terceira coluna */
+
+#Level-4
+display: grid;
+grid-column-start: 5;
+grid-column-end: 2
+/* não entendi o que ocorre com o valor negativo */
+
+#Level-5
+display: grid;
+grid-column-start: 1;
+grid-column-end: -2;
+/* não entendi o que ocorre com o valor negativo  */
+
+#Level-6
+display: grid;
+grid-column-start: -3
+/* não entendi o que ocorre com o valor negativo  */
+
+#Level-7
+display: grid;
+grid-column-end: span 2
+/* a água expande horizontalmente 1 casa p/ direita*/
+
+#Level-8
+display: grid;
+grid-column-end: span 5
+/* a água expande horizontalmente 4 casas p/ direita*/
+
+#Level-9
+display: grid;
+grid-column-start: -4;
+  grid-column-end: 6;
+/* a água expande horizontalmente 4 casas p/ esquerda*/
+
+#Level-10
+display: grid;
+grid-column: 4/6
+/* a água começa na coluna 4 e termina na 5*/
+
+#Level-11
+display: grid;
+grid-column: span 3/5
+/* não entendi como funciona essa*/
+
+#Level-12
+display: grid;
+grid-row-start: 3
+/* movimenta a água para iniciar na linha 3*/
+
+#Level-13
+display: grid;
+grid-row: 3 / 6
+/* movimenta a água para iniciar na linha 3 até a linha 5*/
+
+#Level-14
+display: grid;
+grid-column: 2;
+grid-row: 5;
+/* posiciona o veneno como início na posição coluna 2 linha 5*/
+
+#Level-15
+display: grid;
+grid-row: span 5;
+grid-column: span 4/6;
+/* expande a água da coluna 2 à 5, da linha 1 à 5*/
+
+#Level-16
+display: grid;
+grid-area: 1/2/ 4/6
+/* expande a água da coluna 2 linha 1 até coluna 5 linha 3*/
+
+#Level-17
+display: grid;
+grid-area: 2/3/ 5/6
+/* expande a água da coluna 2 linha 3 até coluna 5 linha 4*/
+
+#Level-18
+display: grid;
+order:3;
+/* movimenta o veneno da coluna 2 andando 3x para a direita*/
+
+#Level-19
+display: grid;
+order:-1;
+/* movimenta o veneno para cima -1*/
+
+#Level-20
+display: grid;
+grid-template-columns: 50% 20% 20% 20%
+/* deixar a primeira coluna com 50% de espaço*/
+
+#Level-21
+display: grid;
+grid-template-columns: repeat(8, 12.5%)
+/* 8 colunas com 12.5%*/
+
+#Level-22
+display: grid;
+grid-template-columns: repeat (3, 100px 3em 40%)
+/* 3 colunas de cada*/
+
+#Level-23
+display: grid;
+grid-template-columns: 1fr 5fr
+/* coluna 1 com 1fr e a segunda coluna ocupa 5fr*/
+
+#Level-24
+display: grid;
+grid-template-columns: 50px 1fr 1fr 1fr 50px
+
+#Level-25
+display: grid;
+grid-template-columns: 50px 1fr 1fr 1fr 50px

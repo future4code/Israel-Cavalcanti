@@ -1,0 +1,154 @@
+#Level-1
+display: flex;
+justify-content: flex-end;
+/* O sapo se deslocou para a ponta direita, no limite do main axis*/
+
+#Level-2
+display: flex;
+justify-content: center;
+/* Os 2 sapos ficaram centralizados */
+
+#Level-3
+display: flex;
+justify-content: space-around;
+/*Os 3 sapos ficaram equidistantes entre si e entre o container */
+
+#Level-4
+display: flex;
+justify-content: space-between;
+/*Os 3 sapos ficaram equidistantes entre si, com os extremos juntos ao container */
+
+#Level-5
+display: flex;
+align-items: flex-end;
+/* Os 3 sapos se deslocaram para baixo, no limite do cross axis*/
+
+#Level-6
+display: flex;
+justify-content: center;
+align-items: center;
+/* O sapo se move para o centro no main axis e também no cross axis*/
+
+#Level-7
+display: flex;
+justify-content: space-around;
+align-items: flex-end;
+/* Os 3 sapos ficaram equidistantes entre si e se moveram para baixo no limite do cross axis */
+
+#Level-8
+display: flex;
+flex-direction: row-reverse;
+/* Os 3 sapos ficam com a ordem inversa e vão para o limite do main axis*/
+
+#Level-9
+display: flex;
+flex-direction: column;
+/* Os 3 sapos em linha no main axis, seguem a mesma ordem, porém em uma coluna (sentido cross axis) */
+
+#Level-10
+display: flex;
+flex-direction: row-reverse;
+justify-content: flex-end;
+/* Os 3 sapos ficam com a ordem inversa e vão para o limite do main axis, e para voltar para o lado esquerdo do main axis aplica-se o flex-end, pois está invertido a posição do main e cross axis*/
+
+#Level-11
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+/* Os 3 sapos ficam em coluna e movem-se para o fim do cross axis*/
+
+#Level-12
+display: flex;
+flex-direction: column-reverse;
+justify-content: space-between;
+/* Os 3 sapos ficam com a ordem inversa em coluna e no ficam equidistantes entre si*/
+
+#Level-13
+display: flex;
+flex-direction: row-reverse;
+justify-content: center;
+align-items: flex-end;
+/* Os 3 sapos ficam em ordem reversa, centralizam e vão para o fim do cross axis*/
+
+#Level-14
+display: flex;
+flex-direction: row-reverse;
+justify-content: center;
+align-items: flex-end;
+/* Os 3 sapos ficam em ordem reversa, centralizam e vão para o fim do cross axis*/
+
+#Level-14
+display: flex;
+.yellow{
+    order: 1
+}
+/* O sapo amarelo troca de lugar com o da direita (vermelho)*/
+
+#Level-15
+display: flex;
+.red{
+    order: -3
+}
+/* O sapo vermelho troca de lugar com o da esquerda 3x*/
+
+#Level-16
+display: flex;
+align-items: flex-start;
+.yellow{
+    align-self: flex-end;
+}
+/* O sapo amarelo apenas, move-se para o fim do cross axis*/
+
+#Level-17
+display: flex;
+align-items: flex-start;
+.yellow{
+    order: 2;
+align-self: flex-end;
+}
+/* Os sapos amarelos movem-se 2x para a direita e depois para o fim do cross axis*/
+
+#Level-18
+display: flex;
+flex-wrap: wrap;
+}
+/* Os sapos espremidos agora estão mais espalhados, o comando wrap move os itens para uma linha adicional*/
+
+#Level-19
+display: flex;
+flex-direction: column;
+flex-wrap: wrap
+}
+/* Os sapos espremidos ficam em coluna e depois se separam em colunas adicionais*/
+
+#Level-20
+display: flex;
+flex-flow: column wrap
+}
+/* Os sapos espremidos ficam em coluna e depois se separam em colunas adicionais com apenas um comando 'flex-flow'*/
+
+#Level-21
+display: flex;
+align-content: flex-start;
+}
+/* Os sapos agora precisam estar na parte de cima, do start*/
+
+#Level-22
+display: flex;
+align-content: flex-end;
+}
+/* Os sapos agora precisam estar na parte de baixo, do end*/
+
+#Level-23
+display: flex;
+flex-direction: column-reverse;
+align-content: center
+}
+/* Os sapos ficam em coluna e em ordem reversa e centralizam*/
+
+#Level-24
+display: flex;
+justify-content: center;
+flex-flow: column-reverse wrap-reverse;
+align-content: space-between;
+/* Os sapos ficam centralizados, em coluna de ordem reversa e com espaço equidistante entre si*/
