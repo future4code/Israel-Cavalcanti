@@ -125,4 +125,20 @@ grid-template-columns: 50px 1fr 1fr 1fr 50px
 
 #Level-25
 display: grid;
-grid-template-columns: 50px 1fr 1fr 1fr 50px
+grid-template-columns: 75px 6fr 4fr;
+/* não entendi */ 
+
+#Level-26
+display: grid;
+grid-template-rows: 50px 0fr 0fr 0fr 
+/* não entendi */ 
+
+#Level-27
+display: grid;
+grid-template: 60% 40%/ 200px
+/* não entendi */ 
+
+#Level-28
+display: grid;
+grid-template: 1fr 50px / 20% 80%
+/* não entendi */ 

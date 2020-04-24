@@ -1,0 +1,90 @@
+*{
+    margin:0;
+    text-transform: uppercase;
+    color: white;
+}
+
+
+.item{
+    justify-content: center;
+    align-items: center;
+    display:flex;
+}
+
+
+/*-------CABEÇALHO----------*/
+.container-cabeçalho{
+    width: 100%;
+    display:flex;
+}
+
+#header{
+    background-color: #2ECC40;
+    height: 150px;
+    width: 25%;
+}
+
+#menu{
+    background-color: #FFDC00;
+    height: 150px;
+    width: 75%;
+}
+
+
+/*---------CORPO1--------*/
+.container-rosa{
+    width: 100%;
+    display:flex;
+}
+
+#content1{
+    background-color: #F012BE;
+    width: 100%;
+    height: 55vh;
+}
+
+/*---------CORPO2--------*/
+.penultima-linha{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+}
+
+.container-azul-vazio{
+    width: 75%;
+    display: flex; 
+}
+
+#content2{
+    background-color: #0074D9;
+    width: 66%;
+}
+
+.container-image{
+    width: 25%;
+    flex-direction: column;
+}
+
+#image{
+    background-color: #FF4136;
+    height: 50%;
+}
+
+#extra{
+    background-color: #01FF70;
+    height: 50%;
+}
+
+    /*---------RODAPE--------*/
+.rodape{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-shrink: 0;
+}
+
+#footer{
+    background-color: #B10DC9;
+    width: 100%;
+    height: 14.5vh;
+}
