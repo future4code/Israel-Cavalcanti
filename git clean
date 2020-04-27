@@ -1,0 +1,107 @@
+[33mcommit 98c30a73f85dcb4c5826de7f00a9d20e42d25a67[m[33m ([m[1;36mHEAD -> [m[1;32msemana2-aula2[m[33m)[m
+Author: IsraelCavalcanti <israel_cavalcanti@hotmail.com>
+Date:   Wed Apr 22 16:50:13 2020 -0300
+
+    Entrega da atividade Flexbox e Grid
+
+[33mcommit 2a411f7f3975df88d479ad3659e29b1e4da7ce20[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 691c358 36e1e12
+Author: IsraelCavalcanti <63520362+IsraelQCavalcanti@users.noreply.github.com>
+Date:   Wed Apr 22 13:42:46 2020 -0300
+
+    Merge pull request #5 from future4code/semana2-aula1
+    
+    Semana2 aula1
+
+[33mcommit 36e1e120127836b41a442721b42c7dcd357ab1ea[m[33m ([m[1;31morigin/semana2-aula1[m[33m)[m
+Author: IsraelCavalcanti <israel_cavalcanti@hotmail.com>
+Date:   Mon Apr 20 16:51:02 2020 -0300
+
+    Centralizei a tabela da aba comprar;adicionando no CSS margin auto para a tag table
+
+[33mcommit 6282f2f3a9d6d7af30d443b61d339da35d53fc41[m
+Author: IsraelCavalcanti <israel_cavalcanti@hotmail.com>
+Date:   Mon Apr 20 16:28:08 2020 -0300
+
+    Deixei ambas as páginas com a fonte Roboto; adicionei ao comprar.html o link da fonte e adicionei no CSS a fonte paratodas as paginas
+
+[33mcommit e2f06929030784d381d41110810ce4638504ba38[m
+Author: IsraelCavalcanti <israel_cavalcanti@hotmail.com>
+Date:   Mon Apr 20 16:11:26 2020 -0300
+
+    Campo de search configurado com apenas a borda inferior; criei um id para o box do input e removi as bordas
+
+[33mcommit ad43d24f2cf22030d1db30e97ace65b4c7c4829d[m
+Author: IsraelCavalcanti <israel_cavalcanti@hotmail.com>
+Date:   Mon Apr 20 15:54:53 2020 -0300
+
+    Adicionado efeito nos botoes de compra; inseridas as opções active e hover para os efeitos
+
+[33mcommit 072c606b3d56a54facb3bfc16a489d8cc6a8e002[m
+Author: IsraelCavalcanti <israel_cavalcanti@hotmail.com>
+Date:   Mon Apr 20 15:08:42 2020 -0300
+
+    TESTE (percebi agora (exercicio 7) que os commits nao estavam indo)
+
+[33mcommit aca6d000a133c2dde814975337113c6994194562[m
+Author: IsraelCavalcanti <israel_cavalcanti@hotmail.com>
+Date:   Mon Apr 20 12:42:24 2020 -0300
+
+    Centralizei os textos da seção azul, tornando os textos <p> e criando no CSS '#container-de-descricao p,h3'
+
+[33mcommit 980d58d675db3d92aa1665418fda587a56293c08[m
+Author: IsraelCavalcanti <israel_cavalcanti@hotmail.com>
+Date:   Mon Apr 20 12:09:13 2020 -0300
+
+    Arrumei botão de voltar na aba comprar, adicionando um link para voltar ao home
+
+[33mcommit 691c358d9759c13fb22f6d408daadf8dfb4bbfb5[m
+Merge: 67cf00c c8b7eec
+Author: IsraelCavalcanti <63520362+IsraelQCavalcanti@users.noreply.github.com>
+Date:   Fri Apr 17 12:14:59 2020 -0300
+
+    Merge pull request #3 from future4code/semana1-aula4
+    
+    Criando um sistema de loja - CSS A04
+
+[33mcommit c8b7eec700ea6b6500afcaa505a2efaf7f8c552c[m[33m ([m[1;31morigin/semana1-aula4[m[33m, [m[1;32msemana1-aula4[m[33m)[m
+Author: IsraelCavalcanti <israel_cavalcanti@hotmail.com>
+Date:   Thu Apr 16 16:55:47 2020 -0300
+
+    Criando um sistema de loja - CSS A04
+
+[33mcommit 67cf00c41306740ff79aae22245d42081f21e0b6[m
+Merge: f4c10ef 6240aec
+Author: IsraelCavalcanti <63520362+IsraelQCavalcanti@users.noreply.github.com>
+Date:   Thu Apr 16 14:13:52 2020 -0300
+
+    Merge pull request #2 from future4code/semana1-aula3
+    
+    Criando um sistema de loja - Início
+
+[33mcommit 6240aecae387db064d01c67bbdc77907bf3526f3[m[33m ([m[1;31morigin/semana1-aula3[m[33m, [m[1;32msemana1-aula3[m[33m)[m
+Author: IsraelCavalcanti <israel_cavalcanti@hotmail.com>
+Date:   Wed Apr 15 16:30:15 2020 -0300
+
+    Criando um sistema de loja - Início
+
+[33mcommit f4c10ef21b4a736be46ef98947a9a93d0379cc6f[m
+Merge: fdc2335 00f482f
+Author: IsraelCavalcanti <63520362+IsraelQCavalcanti@users.noreply.github.com>
+Date:   Tue Apr 14 15:00:27 2020 -0300
+
+    Merge pull request #1 from future4code/semana1-aula2
+    
+    Adicionada minha-bio.txt
+
+[33mcommit 00f482f6fd404a633a90e8dad93d30964523310a[m[33m ([m[1;31morigin/semana1-aula2[m[33m, [m[1;32msemana1-aula2[m[33m)[m
+Author: IsraelCavalcanti <israel_cavalcanti@hotmail.com>
+Date:   Tue Apr 14 13:32:07 2020 -0300
+
+    Adicionada minha-bio.txt
+
+[33mcommit fdc2335455530bbfd5a72ef9d29008fa7464f9dc[m
+Author: Soter Padua <soter19@gmail.com>
+Date:   Thu Apr 9 20:05:12 2020 -0300
+
+    Initial commit
