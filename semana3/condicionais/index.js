@@ -129,3 +129,50 @@ if (numeroI === numeroII && numeroI === numeroIII && numeroII === numeroIII){
 // a. https://drive.google.com/open?id=1sfskKuUHsJzvdYPPuNPMhNHSRjxor-dX
 
 //b. to tentando ainda
+
+let osso = prompt("O animal possui ossos ?")
+
+if (osso === "sim") {
+  console.log("É vertebrado!")
+  
+  let pelos = prompt("Possui pêlos ?")
+  if (pelos === "sim"){
+    console.log("Possui pêlos!")
+
+      let racional = prompt("Ele é racional ?")
+      if (racional === "sim"){
+      console.log("É humano!")
+      alert("É um humano!")
+    } else {
+      console.log("É mamífero!")
+      alert("É um mamífero!")
+    }
+
+  } else if (pelos !== "sim"){
+      let penas = prompt("Possui penas?")
+      if (penas === "sim"){
+      console.log("É uma ave!")
+      alert("É uma ave!")
+    } else {
+      let terrestre = prompt("Ele é terrestre?")
+      if (terrestre !== "sim"){
+      console.log("É peixe!")
+      alert("É um peixe!")
+
+  } else if (terrestre === "sim"){
+    let vidaAgua = prompt("Ele vive parte de sua vida na água?")
+    if (vidaAgua === "sim"){
+    console.log("É anfíbio!")
+    alert("É um anfíbio!")
+    } else if (vidaAgua !== "sim"){
+      console.log("É réptil!")
+      alert("É um réptil!")
+    }
+  }
+ 
+   }
+  }
+ }else if (osso !== "sim"){
+  console.log("É invertebrado!")
+  alert("É invertebrado!")
+}
