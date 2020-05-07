@@ -18,7 +18,6 @@
     margin: 0px 10px;
     background-color: aquamarine;
     grid-row: 4/5;
-
 }
 
 #digite{
@@ -27,7 +26,6 @@
     grid-column: 3/4;
     text-align: center;
     justify-items: center;
-    
 }
 
 #selecDia{
