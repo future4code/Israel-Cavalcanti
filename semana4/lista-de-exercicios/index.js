@@ -16,3 +16,12 @@ No console é impresso:
 165
 TIPO DE INVESITMENTO INFORMADO INCORRETO!
 */
+
+/*3. O código possui 3 arrays: numeros (prrenchido), array1 e array2 (ambos vazios).
+Um 'for' faz um loop para o código rodar: a variável 'numero' será um valor de dentro do array 'numeros' que SE (if) for um número que dividido por 2 tenha resto 0 (numero % 2 === 0), será inserido no 'array1' (array1.push(numero)), caso não respeite essa regra, irá para o 'array2'.
+
+No console é impresso:
+Quantidade total de números 14
+6
+8
+*/
