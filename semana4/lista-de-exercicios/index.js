@@ -95,10 +95,45 @@ while(i < quantidadeDeNumerosPares) {
 
 //4. Equilátero = 3L iguais --- Isósceles = 2L iguais --- Escaleno = 3L!
 
-let ladoA = 0
-let ladoB = 0
-let ladoC = 0
+let ladoA = 1
+let ladoB = 3
+let ladoC = 4
 
-if(ladoA == ladoB == ladoC){
+if(ladoA === ladoB && ladoB === ladoC){
     console.log("Equilátero")
+} 
+    else if(ladoA !== ladoB && ladoB !== ladoC && ladoA !== ladoC){
+    console.log("Escaleno")
+} 
+    else{
+    console.log("Isósceles")
+}
+
+//5. 
+
+let num1 = 4
+let num2 = 2
+
+if(num1 > num2){
+    console.log(`O maior é: ${num1}`)
+}else{
+    console.log(`O maior é: ${num2}`)
+}
+
+if(num1 % num2 === 0){
+    console.log(`${num1} é divisível por ${num2}`)
+    console.log(`${num2} não é divisível por ${num1}`)
+}
+    else if(num2 % num1 === 0){
+        console.log(`${num2} é divisível por ${num1}`)
+        console.log(`${num1} não é divisível por ${num2}`)
+}
+
+if(num1 > num2){
+    diferenca = num1 - num2
+    console.log(`A diferença entre eles é: ${diferenca}`)
+}
+    else if(num1 < num2){
+        diferenca = num2 - num1
+        console.log(`A diferença entre eles é: ${diferenca}`)
 }
