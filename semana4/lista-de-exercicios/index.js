@@ -47,3 +47,34 @@ console.log(alimentos) // Imprime no console toda a lista do array 'alimentos'
 console.log(alimentos[0]) // Ao alterar o número dentro do [], podemos poercorrer os valores dentro do array 'alimentos'
 console.log(alimentos.push("Torta-de-limão")) // Adiciona ao array 'alimentos' o valor "Torta-de-limão"
 console.log(alimentos.length) // Imprime no console a quantidade de itens dentro do array 'alimentos'
+
+// 2.
+const booleano1 = true
+const booleano2 = false
+const booleano3 = !booleano2 // True
+const booleano4 = !booleano3 // False
+/*
+a) `booleano1 && booleano2 && !booleano4` === FALSE
+    (T && F && T) = FALSE
+
+b) `(booleano1 && booleano2) || !booleano3` === TRUE
+    (T && F) = F
+    F || T = TRUE
+
+c) `(booleano2 || booleano3) && (booleano4 || booleano1)` === TRUE
+    (F || T) = T
+    (F || T) = T
+    T && T = TRUE
+
+d) `!(booleano2 && booleano3) || !(booleano1 && booleano3)` === TRUE
+    (F && T) = F -> !F = T
+    (T || F) = T -> !T = F
+    T || F = T
+
+e) `!(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)` === TRUE
+    !(T) = F
+    !(T) = F
+    F && F = T
+    (T && T && T) = T
+    T || T = TRUE
+*/
