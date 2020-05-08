@@ -25,3 +25,12 @@ Quantidade total de números 14
 6
 8
 */
+
+/*4. O código possui um array 'numeros' e duas variáveis: 'numero1' que recebe Infinity e 'numero2' que recebe 0.
+Novamente um 'for' realiza um loop para o código rodar: a variável 'numero' será um valor de dentro do array 'numeros' que SE (if) for menor que Infinity (infinito) alterará o valor da variável 'numero1' inserindo nela o menor número do array. 
+E SE (if) esse valor for maior que 'numero2' alterará o valor da variável 'numero2' inserindo nela o maior número do array.
+
+No console é impresso:
+-10
+1590
+*/
