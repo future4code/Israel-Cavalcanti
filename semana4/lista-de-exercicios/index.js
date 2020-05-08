@@ -78,3 +78,17 @@ e) `!(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)` === 
     (T && T && T) = T
     T || T = TRUE
 */
+
+//3. O código da forma que está não funciona como o exercício solicita. Da forma que está o código é um loop infinito. O código para funcionar corretamente necessita de:
+/*
+i. Adicionar um número à variável quantidadeDeNumerosPares;
+ii. Remover o sinal '=' da condição do while;
+iii. Acrescentar um incremento para adicionar 1 a cada loop que o código rodar.
+*/
+
+const quantidadeDeNumerosPares = 5
+let i = 0
+while(i < quantidadeDeNumerosPares) {
+    console.log(i*2)
+    i++
+}
