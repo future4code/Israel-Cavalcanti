@@ -34,3 +34,16 @@ No console é impresso:
 -10
 1590
 */
+
+// =========================================================
+
+// EXERCICIOS DE LÓGICA DE PROGRAMAÇÃO
+//1. Para percorrer uma lista bem como iterá-la, podemos criar um array:
+
+
+let alimentos = ["Lasanha", "Pudim", "Pizza", "Sorvete", "Pão-de-queijo"]
+
+console.log(alimentos) // Imprime no console toda a lista do array 'alimentos'
+console.log(alimentos[0]) // Ao alterar o número dentro do [], podemos poercorrer os valores dentro do array 'alimentos'
+console.log(alimentos.push("Torta-de-limão")) // Adiciona ao array 'alimentos' o valor "Torta-de-limão"
+console.log(alimentos.length) // Imprime no console a quantidade de itens dentro do array 'alimentos'
