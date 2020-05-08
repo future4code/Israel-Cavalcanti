@@ -92,3 +92,13 @@ while(i < quantidadeDeNumerosPares) {
     console.log(i*2)
     i++
 }
+
+//4. Equilátero = 3L iguais --- Isósceles = 2L iguais --- Escaleno = 3L!
+
+let ladoA = 0
+let ladoB = 0
+let ladoC = 0
+
+if(ladoA == ladoB == ladoC){
+    console.log("Equilátero")
+}
