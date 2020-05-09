@@ -181,3 +181,13 @@ function criaRetangulo (lado1, lado2){
 }
 
 criaRetangulo(5, 3)
+
+//3.
+filmeFav = {
+    titulo: 'Jurassic Park',
+    ano: 1992,
+    diretor: 'Steven Spielberg',
+    atores: ['Jeff Goldblum ','Laura Dern ','Sam Neill']
+}
+
+console.log(`Venha assistir ao filme ${filmeFav.titulo}, de ${filmeFav.ano}, dirigido por ${filmeFav.diretor} e estrelado pelos atores ${filmeFav.atores}.`)
