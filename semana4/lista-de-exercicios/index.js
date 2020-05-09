@@ -244,3 +244,18 @@ const apenasMenores = objetoEx1.filter((elementoMenorVinte) => {
     }
 )
 console.log(apenasMenores)
+
+//2.
+const arrayEx2 = [1, 2, 3, 4, 5, 6]
+
+//a.
+let numerosEx2 = [1, 2, 3, 4, 5, 6]
+let total = 0
+ 
+function multiplicar(item, index){
+    total = item*2
+    numerosEx2[index] = total
+}
+ 
+numerosEx2.forEach(multiplicar)
+console.log(numerosEx2)
