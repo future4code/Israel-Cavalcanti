@@ -167,3 +167,17 @@ alerta()
 
 // EXERCICIOS DE OBJETOS
 //1. Objetos é uma forma de organizar várias variáveis em apenas um lugar. Como uma gaveta para guardar as roupas. Devemos utilizar eles na criação de determinadas características de uma mesma coisa (informações sobre uma pessoa por exemplo). Podemos utilizar os objetos para iterar arrays, e com eles acessar, modificar e adicionar novas informações.
+
+//2.
+function criaRetangulo (lado1, lado2){
+    
+    objeto = {
+        largura: lado1,
+        altura: lado2,
+        perimetro: (lado1 + lado2) * 2,
+        area: lado1*lado2
+    }
+    return console.log(`Um lado mede ${objeto.largura} e o outro ${objeto.altura}. O perímetro vale ${objeto.perimetro} e a área ${objeto.area}`)
+}
+
+criaRetangulo(5, 3)
