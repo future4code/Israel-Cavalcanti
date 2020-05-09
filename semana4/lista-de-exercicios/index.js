@@ -137,3 +137,21 @@ if(num1 > num2){
         diferenca = num2 - num1
         console.log(`A diferença entre eles é: ${diferenca}`)
 }
+
+// =========================================================
+
+// EXERCICIOS DE FUNÇÕES
+
+//1.
+let array = [1, 300, 2, 100, 20, 3, 10, 200, 30]
+console.log(`Este é o array: ${array}`)
+
+array.sort(function(num1, num2){
+    return num1 - num2
+})
+
+let menorNum = array [1]
+console.log(`O segundo menor número é ${menorNum}`)
+
+let maiorNum = array[array.length -2]
+console.log(`O segundo maior número é ${maiorNum}`)
