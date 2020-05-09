@@ -162,3 +162,8 @@ let alerta = function(){
 }
 
 alerta()
+
+// =========================================================
+
+// EXERCICIOS DE OBJETOS
+//1. Objetos é uma forma de organizar várias variáveis em apenas um lugar. Como uma gaveta para guardar as roupas. Devemos utilizar eles na criação de determinadas características de uma mesma coisa (informações sobre uma pessoa por exemplo). Podemos utilizar os objetos para iterar arrays, e com eles acessar, modificar e adicionar novas informações.
