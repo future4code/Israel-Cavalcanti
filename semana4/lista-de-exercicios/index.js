@@ -191,3 +191,21 @@ filmeFav = {
 }
 
 console.log(`Venha assistir ao filme ${filmeFav.titulo}, de ${filmeFav.ano}, dirigido por ${filmeFav.diretor} e estrelado pelos atores ${filmeFav.atores}.`)
+
+//4.
+let infoPessoa = {
+    nome: 'Israel Cavalcanti',
+    idade: 26,
+    email: 'israel_cavalcanti@hotmail.com',
+    endereco: 'Rua Rubens Meireles, 105'
+}
+
+function anonimizarPessoa(){
+    const anonimato ={
+        ...infoPessoa,
+        nome: 'ANÔNIMO'
+    }
+    console.log(anonimato)
+}
+
+anonimizarPessoa()
