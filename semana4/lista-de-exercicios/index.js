@@ -209,3 +209,38 @@ function anonimizarPessoa(){
 }
 
 anonimizarPessoa()
+
+// =========================================================
+
+// EXERCICIOS DE FUNÇÕES DE ARRAY
+//1.
+const objetoEx1 = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 } 
+]
+//a.
+const apenasAdultos = objetoEx1.filter((elementoMaior) => {
+        if(elementoMaior.idade >= 20){
+            return true
+        }
+        else{
+        return false
+        }
+    }
+)
+console.log(apenasAdultos)
+
+//b.
+const apenasMenores = objetoEx1.filter((elementoMenorVinte) => {
+        if(elementoMenorVinte.idade < 20){
+            return true
+        }
+        else {
+            return false
+        }
+    
+    }
+)
+console.log(apenasMenores)
