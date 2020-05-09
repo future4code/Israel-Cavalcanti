@@ -155,3 +155,10 @@ console.log(`O segundo menor número é ${menorNum}`)
 
 let maiorNum = array[array.length -2]
 console.log(`O segundo maior número é ${maiorNum}`)
+
+//2.
+let alerta = function(){
+    return alert("Hello Labenu!")
+}
+
+alerta()
