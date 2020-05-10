@@ -43,9 +43,9 @@ No console é impresso:
 
 let alimentos = ["Lasanha", "Pudim", "Pizza", "Sorvete", "Pão-de-queijo"]
 
+alimentos.push("Torta-de-limão") // Adiciona ao array 'alimentos' o valor "Torta-de-limão"
 console.log(alimentos) // Imprime no console toda a lista do array 'alimentos'
 console.log(alimentos[0]) // Ao alterar o número dentro do [], podemos poercorrer os valores dentro do array 'alimentos'
-console.log(alimentos.push("Torta-de-limão")) // Adiciona ao array 'alimentos' o valor "Torta-de-limão"
 console.log(alimentos.length) // Imprime no console a quantidade de itens dentro do array 'alimentos'
 
 // 2.
@@ -246,7 +246,6 @@ const apenasMenores = objetoEx1.filter((elementoMenorVinte) => {
 console.log(apenasMenores)
 
 //2.
-const arrayEx2 = [1, 2, 3, 4, 5, 6]
 
 //a.
 let numerosEx2 = [1, 2, 3, 4, 5, 6]
@@ -259,3 +258,20 @@ function multiplicar(item, index){
  
 numerosEx2.forEach(multiplicar)
 console.log(numerosEx2)
+
+//b.
+let numerosEx2b = [1, 2, 3, 4, 5, 6]
+let totalb = 0
+ 
+function multiplicar3(item, index){
+    totalb = (item*3)
+    numerosEx2b[index] = totalb 
+}
+
+numerosEx2b.map(multiplicar3)
+
+const arrayString = numerosEx2b.map((multiplicar3) => {
+    return multiplicar3.toString()
+ }
+)
+console.log(arrayString)
