@@ -289,3 +289,33 @@ const arrayParImpar = numerosEx2c.map((item) => {
  }
 )
 console.log(arrayParImpar)
+
+//3.
+const pessoas3 = [
+	{ nome: "Paula", idade: 12, altura: 1.8},
+	{ nome: "João", idade: 20, altura: 1.3},
+	{ nome: "Pedro", idade: 15, altura: 1.9},
+	{ nome: "Luciano", idade: 22, altura: 1.8},
+	{ nome: "Artur", idade: 10, altura: 1.2},
+	{ nome: "Soter", idade: 70, altura: 1.9}
+]
+
+const podeEntrar = pessoas3.filter((condicaoA) => {
+
+    if(condicaoA.altura >= 1.5 && condicaoA.idade > 14 && condicaoA.idade < 60){
+        return true
+    } else{
+        return false
+    }
+})
+console.log(podeEntrar)
+
+const naoPodeEntrar = pessoas3.filter((condicaoB) => {
+
+    if(condicaoB.altura >= 1.5 && condicaoB.idade > 14 && condicaoB.idade < 60){
+        return false
+    } else{
+        return true
+    }
+})
+console.log(naoPodeEntrar)
