@@ -275,3 +275,17 @@ const arrayString = numerosEx2b.map((multiplicar3) => {
  }
 )
 console.log(arrayString)
+
+//c.
+let numerosEx2c = [1, 2, 3, 4, 5, 6]
+
+const arrayParImpar = numerosEx2c.map((item) => {
+    if(item % 2 === 0){
+        return `${item} é par`
+       } 
+       else{
+        return `${item} é impar`
+       }
+ }
+)
+console.log(arrayParImpar)
