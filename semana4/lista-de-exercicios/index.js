@@ -319,3 +319,33 @@ const naoPodeEntrar = pessoas3.filter((condicaoB) => {
     }
 })
 console.log(naoPodeEntrar)
+
+//.4
+const consultas = [
+	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+]
+
+function gerarEmail(paciente){
+   let tratamento
+   let lembrar
+   return consultas.map((paciente) => {
+       if(paciente.genero === 'masculino'){
+        tratamento = 'Sr.'
+        lembrar = 'lembrá-lo'
+       }else{
+        tratamento = 'Sra.'
+        lembrar = 'lembrá-la'
+       }
+
+            if(paciente.cancelada === true){
+            return (`Olá, ${tratamento} ${paciente.nome}. Infelizmente, sua consulta marcada para o dia ${paciente.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la`)
+
+             }else {
+            return (`Olá, ${tratamento} ${paciente.nome}. Estamos enviando esta mensagem para ${lembrar} da sua consulta no dia ${paciente.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`)
+            }
+    })
+}
+console.log(gerarEmail(consultas))
