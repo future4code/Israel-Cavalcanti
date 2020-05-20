@@ -1,17 +1,16 @@
-import React from 'react'
-import Etapa1 from './components/Etapa1'
-import Etapa2 from './components/Etapa2'
-import Etapa3 from './components/Etapa3'
-import Final from './components/Final'
+import React from "react";
+import Etapa1 from "./components/Etapa1";
+import Etapa2 from "./components/Etapa2";
+import Etapa3 from "./components/Etapa3";
+import Final from "./components/Final";
 
 class App extends React.Component {
-  
-  state= {
-    etapa: 1
+  state = {
+    etapa: 1,
   };
 
   renderizaEtapa = () => {
-    switch (this.state.etapa){
+    switch (this.state.etapa) {
       case 1:
         return <Etapa1 />;
       case 2:
@@ -21,26 +20,26 @@ class App extends React.Component {
       case 4:
         return <Final />;
       default:
-      return
+        return;
     }
   };
 
-  irParaProximaEtapa = () =>{
-    this.setState({ etapa: this.state.etapa + 1 })
-    console.log(this.state.etapa)
+  irParaProximaEtapa = () => {
+    this.setState({ etapa: this.state.etapa + 1 });
+    console.log(this.state.etapa);
   };
-  
-  render(){
-    
-    return (
+
+  render() {
+    return this.state.etapa < 4 ? (
       <div>
         {this.renderizaEtapa()}
         <br />
         <button onClick={this.irParaProximaEtapa}>Próxima etapa</button>
       </div>
-    
-    )
+    ) : (
+      <div>{this.renderizaEtapa()}</div>
+    );
   }
 }
 
-export default App
+export default App;
