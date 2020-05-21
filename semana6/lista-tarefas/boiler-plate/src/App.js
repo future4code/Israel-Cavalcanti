@@ -20,25 +20,22 @@ const InputsContainer = styled.div`
 
 class App extends React.Component {
   state = {
-    tarefas: [
-      {
-        id: Date.now(), // Gera um id para cada tarefa, assim podemos identificar qual foi clicada para marcar como completa
-        texto: "",
-        completa: false, // Indica se a tarefa está completa (true ou false)
-      },
-      {
-        id: Date.now(), // Gera um id para cada tarefa, assim podemos identificar qual foi clicada para marcar como completa
-        texto: "",
-        completa: !false, // Indica se a tarefa está completa (true ou false)
-      },
-    ],
+    tarefas: [],
     inputValue: "",
     filter: "",
   };
 
-  componentDidUpdate() {}
+  componentDidMount = () => {
+    const usarTaferaNoLocalStorage = localStorage.getItem("tarefaSalva");
+    const tarefaObjeto = JSON.parse(usarTaferaNoLocalStorage);
+    console.log(tarefaObjeto);
+    this.setState({ tarefas: tarefaObjeto });
+  };
 
-  componentDidMount() {}
+  componentDidUpdate = () => {
+    const tarefaString = this.state.tarefas;
+    localStorage.setItem("tarefaSalva", JSON.stringify(tarefaString));
+  };
 
   onChangeInput = (event) => {
     this.setState({ inputValue: event.target.value }); // 1. permite que possa ser inserido um valor no input
@@ -54,19 +51,20 @@ class App extends React.Component {
 
     const novaListaTarefa = [...this.state.tarefas, novaTarefa]; // 3. Cria uma cópia do array tarefas no state
 
-    this.setState({ tarefas: novaListaTarefa }); // 4. diz para o state que esse é o novo array para o array tarefas
-    this.state.inputValue = ""; // 5. limpa o input assim que clicar em adicionar
+    this.setState({ tarefas: novaListaTarefa, inputValue: "" }); // 4. diz para o state que esse é o novo array para o array tarefas e 5. limpa o input assim que clicar em adicionar
   };
 
   selectTarefa = (id) => {
     const idTarefa = this.state.tarefas.map((tarefa) => {
       const idAtual = id;
       if (tarefa.id === id) {
-        return { completa: !tarefa.completa, texto: tarefa.texto, id: idAtual };
+        return { id: idAtual, completa: !tarefa.completa, texto: tarefa.texto };
       } else {
         return tarefa;
       }
     });
+
+    this.setState({ tarefas: idTarefa });
   };
 
   onChangeFilter = (event) => {
@@ -74,12 +72,12 @@ class App extends React.Component {
   };
 
   render() {
-    const listaFiltrada = this.state.tarefas.filter((tarefa) => {
+    const listaFiltrada = this.state.tarefas.filter((arrayFiltrado) => {
       switch (this.state.filter) {
         case "pendentes":
-          return !tarefa.completa;
+          return !arrayFiltrado.completa;
         case "completas":
-          return tarefa.completa;
+          return arrayFiltrado.completa;
         default:
           return true;
       }
@@ -103,13 +101,14 @@ class App extends React.Component {
           </select>
         </InputsContainer>
         <TarefaList>
-          {listaFiltrada.map((tarefa) => {
+          {listaFiltrada.map((arrayMapDoFiltrado) => {
             return (
               <Tarefa
-                completa={tarefa.completa}
-                onClick={() => this.selectTarefa(tarefa.id)}
+                key={arrayMapDoFiltrado.id}
+                completa={arrayMapDoFiltrado.completa}
+                onClick={() => this.selectTarefa(arrayMapDoFiltrado.id)}
               >
-                {tarefa.texto}
+                {arrayMapDoFiltrado.texto}
               </Tarefa>
             );
           })}
