@@ -45,5 +45,4 @@ if (valorC > valorU && valorC <= 21){// se a soma dos valores do computador for 
 }
 if (valorU > 21 && valorC > 21) // se ambos valores forem maiores que 21, ambos perdem
    console.log("Ninguém ganhou! Recomece o jogo!")
-
 */

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href ="style.css" type="text/css" rel="stylesheet">
+    <script src ="script.js" defer></script>
+    <title>Controlador de despesas</title>
+</head>
+
+<body>
+    <div id="cadatroDespesa">
+
+        <h1>Labenu Bank</h1>
+        <h2>Cadastre suas despesas</h2>
+
+        <form>
+
+            <label>Valor (R$):</label>
+            <input
+            id="input-valor-inserido"
+            type="text"
+            placeholder="Insira o valor da despesa">
+
+            <br><br>
+
+            <label>Selecione o tipo de despesa:</label>
+            <select id="selec-tipo-despesa">
+                <option value="vazio">           </option>
+                <option value="casa">           Casa</option>
+                <option value="viagem">         Viagem</option>
+                <option value="alimentacao">    Casa</option>
+                <option value="transporte">     Transporte</option>
+                <option value="outros">         Outros</option>
+            </select>
+
+            <br><br>
+
+            <label>Descrição</label>
+            <input
+            id="input-descricao-inserida"
+            type="text"
+            placeholder="Descreva sua despesa">
+
+            <br><br>
+
+            <button onclick="cadastrarDespesa()">Cadastrar Despesa</button>
+        </form>
+    </div>
+    <br>
+    <div id="detalheDespesa">
+        <!--
+            Lista com todas despesas mostrando o valor, descrição e tipo
+            Filtro de busca por tipo de gasto, valor máximo e valor mínimo ao mesmo tempo
+            (impedir que o usuário filtre sem critérios)
+            (botão para limpar os campos)
+        -->
+        <h2>Detalhe das despesas</h2>
+        
+    </div>
+
+    <div id="extratoDespesa">
+        <!--
+            Tipos de gastos e respectivo valor
+            Total gasto
+        -->
+    </div>
+
+</body>
+</html>

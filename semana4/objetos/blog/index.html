@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href ="style.css" type="text/css" rel="stylesheet">
+    <script src ="index.js" defer></script>
+    <title>Blog</title>
+</head>
+<body>
+    <h1>Blog Labenu</h1>
+
+    <form>
+
+        <label>Título:</label>
+        <br>
+        <input
+        id="input-titulo"
+        type="text"
+        placeholder="Título">
+        
+        <br><br>
+
+        <label>Autor:</label>
+        <br>
+        <input
+        id="input-autor"
+        type="text"
+        placeholder="Autor">
+        
+        <br><br>
+
+        <label>Post:</label>
+        <br>
+        <textarea
+        id="areaDoPost"
+        placeholder = "Digite aqui seu conteúdo"></textarea>
+        <br>
+        <button
+        onclick="adicionaPost">
+        Enviar post!
+        </button>
+
+    </form>
+
+    <div id="areaDaPostagem">
+
+    </div>
+
+</body>
+</html>
