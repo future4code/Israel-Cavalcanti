@@ -26,7 +26,6 @@ class App extends React.Component {
 
   irParaProximaEtapa = () => {
     this.setState({ etapa: this.state.etapa + 1 });
-    console.log(this.state.etapa);
   };
 
   render() {

@@ -1,36 +1,27 @@
 import React from "react";
+import PerguntaAberta from "./PerguntaAberta";
+import PerguntaFechada from "./PerguntaFechada";
 
-function Etapa1() {
-  return (
-    <div>
-      <h2>ETAPA 1 - DADO GERAIS</h2>
-      <form>
-        <label>1. Qual o seu nome?</label>
-        <br />
-        <input type="text" placeholder="Nome"></input>
-
-        <br />
-        <label>2. Qual sua idade?</label>
-        <br />
-        <input type="text" placeholder="Idade"></input>
-
-        <br />
-        <label>3. Qual seu email?</label>
-        <br />
-        <input type="text" placeholder="Email"></input>
-
-        <br />
-        <label>4. Qual a sua escolaridade?</label>
-        <br />
-        <select>
-          <option value="EM-Incompleto">Ensino médio incompleto</option>
-          <option value="EM-Completo">Ensino médio completo</option>
-          <option value="ES-Incompleto">Ensino superior incompleto</option>
-          <option value="ES-Completo">Ensino superior completo</option>
-        </select>
-      </form>
-    </div>
-  );
+class Etapa1 extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>ETAPA 1 - DADOS GERAIS</h2>
+        <PerguntaAberta pergunta="1. Qual o seu nome?" />
+        <PerguntaAberta pergunta="2. Qual a sua idade?" />
+        <PerguntaAberta pergunta="3. Qual o seu email?" />
+        <PerguntaFechada
+          pergunta={"4. Qual a sua escolaridade?"}
+          opcoes={[
+            "Ensino médio incompleto",
+            "Ensino médio completo",
+            "Ensino superior incompleto",
+            "Ensino superior completo",
+          ]}
+        />
+      </div>
+    );
+  }
 }
 
 export default Etapa1;
