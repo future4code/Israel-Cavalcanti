@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import List from "./components/List";
-import Login from "./components/Login";
+import ListPage from "./components/ListPage";
+import LoginPage from "./components/LoginPage";
 
 const AppContainer = styled.div`
   text-align: center;
@@ -9,30 +9,39 @@ const AppContainer = styled.div`
 
 class App extends React.Component {
   state = {
-    loginNaTela: true,
-  };
-  onClickLoginOrLogout = () => {
-    this.setState({ loginNaTela: !this.state.loginNaTela });
+    currentPage: "signUp",
   };
 
-  onClickSalvou = () => {
-    alert("Dados enviados!");
+  // =====================
+  // clicando no botao, se estiver signUp, mudar para o estado para userList. Se não, mudar o estado para signUp. Isso afetará o que será renderizado do if conforme a situação do estado aqui alterado.
+  onClickChangePage = () => {
+    if (this.state.currentPage === "signUp") {
+      this.setState({ currentPage: "userList" });
+    } else {
+      this.setState({ currentPage: "signUp" });
+    }
   };
+  // =====================
 
   render() {
-    if (this.state.loginNaTela) {
+    //Se o estado estiver signUp, mostrar o componente LoginPage
+    if (this.state.currentPage === "signUp") {
       return (
         <AppContainer>
-          <Login clicouSave={this.onClickSalvou} />
+          <LoginPage viewListPage={this.onClickChangePage} />
         </AppContainer>
       );
-    } else {
+    } //Se o estado estiver diferente de signUp, mostrar o componente ListPage
+    else {
       return (
         <AppContainer>
-          <List fazerLogout={this.onClickLoginOrLogout} />
+          <ListPage backToLogin={this.onClickChangePage} />
         </AppContainer>
       );
     }
+    // Ou ao invés de usar o if-else, podemos utilizar o ternário para um código mais limpo da seguinte forma:
+    // {this.state.currentPage === "signUp" ? "Sim: Mostrar o componente <LoginPage />" : "Nao: Mostrar o componente <ListPage />"}
+    // Assim evitam-se várias linhas de código, mas funciona da mesma forma
   }
 }
 export default App;
