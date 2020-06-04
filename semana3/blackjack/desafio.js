@@ -163,4 +163,3 @@ if (confirm("Seja bem-vindo ao desafio de Blackjack!\nQuer iniciar uma nova roda
    console.log("O usuário desistiu antes de começar!")
    alert("Não quer tentar a sorte?")
 }
-
