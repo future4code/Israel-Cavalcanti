@@ -1,22 +1,24 @@
 import React from "react";
 import styled from "styled-components";
+import GridCards from "./components/GridCards";
 
 // =========================================================
 const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   background-image: url("https://i.imgur.com/2gfwG.png");
 `;
 
 const Header = styled.header`
-  text-align: center;
-`;
-
-const Main = styled.main`
-  text-align: center;
+  display: flex;
+  justify-content: center;
 `;
 
 const Footer = styled.footer`
+  display: flex;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -41,7 +43,7 @@ function App() {
           alt="Logo-Pokemon"
         />
       </Header>
-      <Main>CARDS</Main>
+      <GridCards />
       <Footer>
         <LogoPokebola
           src="http://pngimg.com/uploads/pokeball/pokeball_PNG11.png"
