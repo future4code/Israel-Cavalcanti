@@ -8,6 +8,10 @@ const DeletePlaylist = styled.span`
   cursor: pointer;
 `;
 
+const Playlist = styled.li`
+  cursor: pointer;
+`;
+
 const axiosConfig = {
   headers: {
     Authorization: "israel-cavalcanti-mello",
@@ -17,6 +21,7 @@ const axiosConfig = {
 class ListPage extends React.Component {
   state = {
     allPlaylists: [],
+    musics: [],
   };
 
   fetchAllPlaylist() {
@@ -49,6 +54,17 @@ class ListPage extends React.Component {
     this.fetchAllPlaylist();
   }
 
+  onClickMusicasDaPlaylist = (playlistId) => {
+    axios
+      .get(
+        `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${playlistId}/Tracks`,
+        axiosConfig
+      )
+      .then((response) => {
+        this.setState({ musics: response.data.result.tracks });
+      });
+  };
+
   render() {
     return (
       <div>
@@ -58,17 +74,43 @@ class ListPage extends React.Component {
           clique no botão abaixo.
         </p>
         <button onClick={this.props.backToHome}>Back to home</button>
-
+        <br />
+        <br />
         {this.state.allPlaylists.map((playlist) => {
           return (
-            <li>
+            <Playlist
+              key={playlist.id}
+              onClick={() => this.onClickMusicasDaPlaylist(playlist.id)}
+            >
               {playlist.name}{" "}
               <DeletePlaylist
                 onClick={() => this.onClickDeletePlaylist(playlist.id)}
               >
                 X
               </DeletePlaylist>
-            </li>
+            </Playlist>
+          );
+        })}
+        <br />
+        <hr />
+        <h1>Selecione uma playlist e veja abaixo suas músicas!</h1>
+        {this.state.musics.map((musics) => {
+          return (
+            <div key={musics.id}>
+              <li>{musics.name}</li>
+              <br />
+              <iframe
+                title="teste"
+                src={musics.url}
+                width="300"
+                height="80"
+                frameborder="0"
+                allowtransparency="true"
+                allow="encrypted-media"
+              ></iframe>
+              <br />
+              <br />
+            </div>
           );
         })}
       </div>

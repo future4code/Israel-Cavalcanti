@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import HomePage from "./components/HomePage.js";
 import ListPage from "./components/ListPage";
-import LoginPage from "./components/LoginPage";
+//import LoginPage from "./components/LoginPage";
 
 const AppContainer = styled.div`
   text-align: center;
