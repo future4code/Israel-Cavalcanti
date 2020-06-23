@@ -29,7 +29,7 @@ export default function MatchPage(props) {
 
   useEffect(() => {
     matches();
-  }, [props.id]);
+  }, []);
 
   const getMatch = getMatches.map((info) => {
     return (
