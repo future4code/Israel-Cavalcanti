@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function ApplicationForm() {
-  return <div></div>;
+  return <div>ApplicationForm</div>;
 }
