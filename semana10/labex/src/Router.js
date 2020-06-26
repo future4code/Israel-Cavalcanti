@@ -1,13 +1,14 @@
 import React from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
-import HomePage from "./HomePage";
-import ApplicationFormPage from "./ApplicationFormPage";
-import LoginPage from "./LoginPage";
-import CreateTripPage from "./CreateTripPage";
-import ListTripsPage from "./ListTripsPage";
-import TripDetailsPage from "./TripDetailsPage";
-import Error from "./Error";
+import HomePage from "./components/HomePage";
+import ApplicationFormPage from "./components/ApplicationFormPage";
+import LoginPage from "./components/LoginPage";
+import CreateTripPage from "./components/CreateTripPage";
+import ListTripsPage from "./components/ListTripsPage";
+import TripDetailsPage from "./components/TripDetailsPage";
+import AdmPage from "./components/AdmPage";
+import Error from "./components/Error";
 
 export default function Router() {
   return (
@@ -28,8 +29,11 @@ export default function Router() {
         <Route exact path="/trips/list">
           <ListTripsPage />
         </Route>
-        <Route exact path="/trips/details">
+        <Route exact path="/trips/details/">
           <TripDetailsPage />
+        </Route>
+        <Route>
+          <AdmPage exact path="/adm" />
         </Route>
         <Route path="">
           <Error />
