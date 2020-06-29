@@ -4,6 +4,32 @@ import Helmet from "react-helmet";
 import { Link, useParams } from "react-router-dom";
 import { useBlockAccess } from "../Hooks/useBlockAccess";
 import Api from "../../Api";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import {
+  ContainerDetailsPage,
+  ContainerMediumDetail,
+  Text,
+  ContainerDetail,
+  LabeXHeader,
+  Header,
+  HeaderButtons,
+  DetailTrip,
+  Candidates,
+} from "../Styles/Styles";
+import logoLabeX from "../../assets/logo_white.png";
+import "./styles.css";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#FF8000",
+    },
+    secondary: {
+      main: "#FDFDFD",
+    },
+  },
+});
 
 function TripDetailsPage() {
   // ESTADO PARA SALVAR INFOS DA VIAGEM
@@ -42,18 +68,28 @@ function TripDetailsPage() {
   const infoCandidates = candidates.map((candidate) => {
     return (
       <div>
+        <hr />
         <p>
-          Nome: {candidate.name} - Idade: {candidate.age} - Pofissão:{" "}
-          {candidate.profession} - País: {candidate.country}
+          <span>Nome:</span> {candidate.name} <span> Idade:</span>{" "}
+          {candidate.age} <span> Pofissão: </span> {candidate.profession}{" "}
+          <span> País: </span> {candidate.country}
         </p>
-        <p>Motivo da viagem: {candidate.applicationText}</p>
-        <button onClick={() => aproveCandidate(candidate.id)}>
-          Aceitar candidato
-        </button>
-        <button onClick={() => reproveCandidate(candidate.id)}>
-          Recusar candidato
-        </button>
-        <br />
+        <p>
+          <span>Motivo da viagem:</span> {candidate.applicationText}
+        </p>
+        <MuiThemeProvider theme={theme}>
+          <Button
+            color="primary"
+            variant="outlined"
+            size="medium"
+            onClick={() => aproveCandidate(candidate.id)}
+          >
+            Aceitar candidato
+          </Button>
+          <Button onClick={() => reproveCandidate(candidate.id)}>
+            Recusar candidato
+          </Button>
+        </MuiThemeProvider>
       </div>
     );
   });
@@ -89,24 +125,39 @@ function TripDetailsPage() {
   // SE TIVER TOKEN, MOSTRARÁ A PÁGINA PRIVADA TRIPS/DETAILS. SE O USUÁRIO TENTAR ENTRAR PELO LINK DO NAVEGADOR SEM TER LOGIN, ELE CAIRÁ EM UMA PÁGINA VAZIA E NÃO VISUALIZARÁ A PÁGINA PRIVADA E VOLTARÁ PARA A PÁGINA DE LOGIN.
   if (token) {
     return (
-      <div>
+      <ContainerDetailsPage>
         <Helmet title="LabeX - Detalhes da viagem" />
-        <h1>TripDetailsPage</h1>
-        <Link to="/adm">
-          <button>Voltar</button>
-        </Link>
-        <h3>
-          Selecione uma viagem na página{" "}
-          <Link to="/trips/list">lista de viagens</Link>
-        </h3>
-        <p>Nome da viagem: {tripDetail.name}</p>
-        <p>Descrição da viagem: {tripDetail.description}</p>
-        <p>Destino: {tripDetail.planet}</p>
-        <p>Duração: {tripDetail.durationInDays}</p>
-        <p>Patida: {tripDetail.date}</p>
-        <br />
-        {infoCandidates}
-      </div>
+        <Header>
+          <LabeXHeader src={logoLabeX} alt="Logo-LabeX" />
+          <HeaderButtons>
+            <MuiThemeProvider theme={theme}>
+              <Link to="/adm">
+                <Button color="primary" variant="outlined" size="medium">
+                  Voltar
+                </Button>
+              </Link>
+            </MuiThemeProvider>
+          </HeaderButtons>
+        </Header>
+        <ContainerMediumDetail>
+          <Text>
+            <h2>
+              Primeiro, selecione uma viagem na página{" "}
+              <Link to="/trips/list">lista de viagens</Link>
+            </h2>
+          </Text>
+          <ContainerDetail>
+            <DetailTrip>
+              <span>Nome da viagem:</span> {tripDetail.name}
+              <span>Descrição da viagem:</span> {tripDetail.description}
+              <span>Destino:</span> {tripDetail.planet}
+              <span>Duração:</span> {tripDetail.durationInDays}
+              <span>Patida:</span> {tripDetail.date}
+            </DetailTrip>
+            <Candidates>{infoCandidates}</Candidates>
+          </ContainerDetail>
+        </ContainerMediumDetail>
+      </ContainerDetailsPage>
     );
   } else {
     return <div>ACESSO NEGADO</div>;

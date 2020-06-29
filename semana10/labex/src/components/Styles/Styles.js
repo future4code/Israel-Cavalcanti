@@ -31,9 +31,12 @@ export const ContainerHomePage = styled.body`
   justify-content: center;
   align-items: center;
   background-image: url("https://static.scientificamerican.com/sciam/cache/file/0747F4F8-E859-40FF-8E9817304493B7B3_source.png");
-  width: 100vw;
-  height: 100vh;
   color: white;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: cover;
 `;
 
 export const LabeX = styled.img`
@@ -68,6 +71,11 @@ export const ContainerFormPage = styled.body`
   width: 100vw;
   height: 100vh;
   color: white;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: cover;
 `;
 
 export const ContainerMediumForm = styled.main`
@@ -113,6 +121,11 @@ export const ContainerLoginPage = styled.body`
   width: 100vw;
   height: 100vh;
   color: white;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: cover;
 `;
 
 export const LoginRight = styled.div`
@@ -133,6 +146,11 @@ export const ContainerADMPage = styled.body`
   width: 100vw;
   height: 100vh;
   color: white;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: cover;
 `;
 
 export const ContainerMediumADM = styled.div`
@@ -173,6 +191,11 @@ export const ContainerCreateTripPage = styled.body`
   width: 100vw;
   height: 100vh;
   color: white;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: cover;
 `;
 
 export const FormQuestionsCreate = styled.form`
@@ -194,6 +217,11 @@ export const ContainerListTripPage = styled.body`
   width: 100vw;
   height: 100vh;
   color: white;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: cover;
 `;
 
 export const ContainerMediumList = styled.div`
@@ -214,4 +242,57 @@ export const ContainerList = styled.div`
   color: #ff8000;
   background-color: rgba(69, 82, 91, 0.8);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+`;
+
+// ========================
+// ======================== LIST TRIPS
+// ========================
+export const ContainerDetailsPage = styled.body`
+  display: flex;
+  flex-direction: column;
+  background-image: url("https://wgntv.com/wp-content/uploads/sites/5/2019/11/s116536929.jpg?w=2560&h=1440&crop=1");
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: cover;
+`;
+
+export const ContainerMediumDetail = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 1000px;
+  height: 450px;
+  margin: auto;
+`;
+
+export const ContainerDetail = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 800px;
+  height: 700px;
+  color: #ff8000;
+  background-color: rgba(69, 82, 91, 0.8);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+`;
+
+export const DetailTrip = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 600px;
+  height: 100px;
+  color: white;
+`;
+
+export const Candidates = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 600px;
+  height: 380px;
 `;
