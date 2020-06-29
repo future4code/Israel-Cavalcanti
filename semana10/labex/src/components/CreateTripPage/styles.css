@@ -1,0 +1,8 @@
+input:invalid {
+  color: red;
+  box-shadow: rgb(255, 0, 0) 0 0 1px 1px;
+}
+
+input:valid {
+  color: green;
+}
