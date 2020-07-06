@@ -49,6 +49,10 @@ function Planner() {
       .post(baseUrl, body)
       .then((response) => {
         console.log("Tarefa criada!");
+        setForm({
+          inputTask: "",
+          day: "",
+        });
         getTask();
       })
       .catch((err) => {
@@ -77,16 +81,25 @@ function Planner() {
             value={form.inputTask}
             placeholder="Digite aqui sua atividade"
           ></input>
-          <select name="day" value={form.day} onChange={onChangeInput} required>
-            <option value="">Selecione o dia...</option>
-            <option value="monday">Segunda-Feira</option>
-            <option value="tuesday">Terça-Feira</option>
-            <option value="wednesday">Quarta-Feira</option>
-            <option value="thursday">Quinta-Feira</option>
-            <option value="friday">Sexta-Feira</option>
-            <option value="saturday">Sábado</option>
-            <option value="sunday">Domingo</option>
-          </select>
+          <label>
+            {" "}
+            Selecione o dia:
+            <select
+              name="day"
+              value={form.day}
+              onChange={onChangeInput}
+              required
+            >
+              <option value="">Selecione o dia...</option>
+              <option value="monday">Segunda-feira</option>
+              <option value="tuesday">Terça-Feira</option>
+              <option value="wednesday">Quarta-Feira</option>
+              <option value="thursday">Quinta-Feira</option>
+              <option value="friday">Sexta-Feira</option>
+              <option value="saturday">Sábado</option>
+              <option value="sunday">Domingo</option>
+            </select>
+          </label>
           <button type="submit">Criar atividade</button>
         </Inputs>
       </Header>
@@ -145,7 +158,7 @@ function Planner() {
           <h3>Sábado</h3>
           <ul>
             {tasks.map((task) => {
-              if (task.day === "friday") {
+              if (task.day === "saturday") {
                 return <li>{task.text}</li>;
               }
             })}
@@ -155,7 +168,7 @@ function Planner() {
           <h3>Domingo</h3>
           <ul>
             {tasks.map((task) => {
-              if (task.day === "friday") {
+              if (task.day === "sunday") {
                 return <li>{task.text}</li>;
               }
             })}
