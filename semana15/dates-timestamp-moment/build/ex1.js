@@ -56,27 +56,24 @@ const printAllEventsEx3 = (events) => {
     });
 };
 printAllEventsEx3(allEvents);
-const createEvent = (events) => {
-    const newEvent = {
-        name: process.argv[2],
-        description: process.argv[3],
-        startAt: moment(process.argv[4], "DD/MM/YYYY, HH:mm"),
-        finishAt: moment(process.argv[5], "DD/MM/YYYY, HH:mm"),
-    };
-    if (!newEvent.name ||
-        !newEvent.description ||
-        !newEvent.startAt ||
-        !newEvent.finishAt) {
+const createEvent = (name, description, startAt, finishAt) => {
+    if (!name || !description || !startAt || !finishAt) {
         console.log("Por gentileza, verifique se todos os dados foram inseridos");
         return;
     }
-    const diffStartAndToday = newEvent.startAt.diff(moment(), "seconds");
-    const diffFinishAndToday = newEvent.finishAt.diff(moment(), "seconds");
-    if (diffStartAndToday < 0 && diffFinishAndToday < 0) {
+    const diffStartAndToday = startAt.diff(moment(), "seconds");
+    const diffFinishAndToday = finishAt.diff(moment(), "seconds");
+    if (diffStartAndToday < 0 && diffFinishAndToday > 0) {
         console.log("A data inserida precisa ser futura!");
         return;
     }
-    allEvents.push(newEvent);
+    allEvents.push({
+        name,
+        description,
+        startAt,
+        finishAt,
+    });
 };
-createEvent(allEvents);
+createEvent(process.argv[2], process.argv[3], moment(process.argv[4], "DD/MM/YYYY"), moment(process.argv[5], "DD/MM/YYYY"));
+console.log(allEvents);
 //# sourceMappingURL=ex1.js.map

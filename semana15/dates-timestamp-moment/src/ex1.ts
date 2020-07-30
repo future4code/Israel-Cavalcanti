@@ -129,7 +129,7 @@ const createEvent = (
   const diffStartAndToday = startAt.diff(moment(), "seconds");
   const diffFinishAndToday = finishAt.diff(moment(), "seconds");
 
-  if (diffStartAndToday < 0 && diffFinishAndToday < 0) {
+  if (diffStartAndToday < 0 && diffFinishAndToday > 0) {
     console.log("A data inserida precisa ser futura!");
     return;
   }
@@ -142,5 +142,10 @@ const createEvent = (
   });
 };
 
-createEvent("Evento Teste", "Descrição teste", "29/07/2020", "29/07/2020");
-createEvent(process.argv[2], process.argv[3], process.argv[4], process.argv[5]);
+createEvent(
+  process.argv[2],
+  process.argv[3],
+  moment(process.argv[4], "DD/MM/YYYY"),
+  moment(process.argv[5], "DD/MM/YYYY")
+);
+console.log(allEvents);
