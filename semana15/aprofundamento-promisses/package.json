@@ -1,0 +1,17 @@
+{
+  "name": "aprofundamento-promisses",
+  "version": "1.0.0",
+  "description": "Aula 47 - Aprofundamento em promisses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node ./build/index.js"
+  },
+  "author": "Israel Cavalcanti",
+  "license": "ISC",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/node": "^14.0.27",
+    "typescript": "^3.9.7"
+  }
+}
