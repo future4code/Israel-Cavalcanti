@@ -1,0 +1,37 @@
+[
+  {
+    "name": "João",
+    "cpf": "1234",
+    "birthDate": "1996-11-09T02:00:00.000Z",
+    "balance": 0,
+    "transactions": []
+  },
+  {
+    "name": "Robson",
+    "cpf": "1234",
+    "birthDate": "1996-11-09T02:00:00.000Z",
+    "balance": 0,
+    "transactions": []
+  },
+  {
+    "name": "Arturito",
+    "cpf": "1234",
+    "birthDate": "1996-11-09T02:00:00.000Z",
+    "balance": 0,
+    "transactions": []
+  },
+  {
+    "name": "Jorginho",
+    "cpf": "1234",
+    "birthDate": "1996-11-09T02:00:00.000Z",
+    "balance": 0,
+    "transactions": []
+  },
+  {
+    "name": "Israel",
+    "cpf": "123",
+    "birthDate": "1994-05-05T03:00:00.000Z",
+    "balance": 0,
+    "transactions": []
+  }
+]
