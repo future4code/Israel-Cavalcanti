@@ -1,83 +1,56 @@
-import * as fs from "fs";
-import moment, { Moment } from "moment";
-import UserAccount from "./userAccount";
-import JSONFileManager from "./JSONFileManager";
+import { Bank } from "./Bank";
+import { Account } from "./Account";
+import { Transaction } from "./Transaction";
 
-type Account = {
-  name: string;
-  cpf: string;
-  birthDate: Moment;
-  balance: number;
-  transactions: Transaction[];
-};
--class Transaction {
-  private date: string;
-  private value: number;
-  private description: string;
+const bank: Bank = new Bank();
+// Como este é o arquivo lido, precisamos guardar a informação do tipo de ação inserido pelo usuário:
+const action: string = process.argv[2];
 
-  constructor(date: string, value: number, description: string) {
-    this.date = date;
-    this.value = value;
-    this.description = description;
-  }
-};
+// Ações possíveis de serem inseridas pelo usuário:
+switch (action) {
+  case "createAccount":
+    bank.createAccount(process.argv[3], process.argv[4], process.argv[5]);
+    console.log(
+      "Parabéns " + process.argv[3] + "!. Sua conta foi criada com sucesso!"
+    );
+    break;
 
-function createAccount(
-  name: string,
-  cpf: string,
-  birthDate: string,
-  balance: number
-): void {
-  const accounts = readDatabase() as any[];
+  case "getBalance":
+    const saldo = bank.getBalance(process.argv[3], process.argv[4]);
+    console.log(
+      "Olá " + process.argv[3] + `!. Seu saldo é de R$ ${saldo} reais.`
+    );
+    break;
 
-  const newAccount = {
-    name,
-    cpf,
-    birthDate: moment(birthDate, "DD/MM/YYYY"),
-    balance: 0,
-    transactions: [],
-  };
+  case "addBalance":
+    bank.addBalance(process.argv[3], process.argv[4], Number(process.argv[5]));
+    console.log("Valor de R$ " + process.argv[5] + " adicionado à sua conta!");
+    break;
 
-  if (moment().diff(birthDate, "years") >= 18) {
-    accounts.push(newAccount);
-    writeToDatabase(accounts);
-  } else {
-    console.log("\x1b[31m", "Invalid birth date");
-  }
+  case "payBill":
+    bank.payBill(
+      process.argv[3],
+      Number(process.argv[4]),
+      process.argv[5],
+      process.argv[6]
+    );
+    break;
+
+  case "updateBalance":
+    bank.updateBalance();
+    break;
+
+  case "makeTransfer":
+    bank.makeTransfer(
+      process.argv[3],
+      process.argv[4],
+      process.argv[5],
+      process.argv[6],
+      Number(process.argv[7])
+    );
+    break;
+
+  default:
+    console.log("Operação inválida!");
+    break;
 }
-
-function getAllAccounts(): Account[] {
-  const accounts = readDatabase() as any[];
-
-  const mappedAccounts: Account[] = accounts.map((account) => {
-    return {
-      name: account.name,
-      cpf: account.cpf,
-      birthDate: account.birthDate,
-      balance: account.balance,
-      transactions: account.transactions,
-    };
-  });
-
-  return mappedAccounts;
-}
-
-function main(action: string): void {
-  switch (action) {
-    case "create":
-      createAccount(
-        process.argv[3],
-        process.argv[4],
-        process.argv[5],
-        Number(process.argv[6])
-      );
-      break;
-    case "get":
-      console.log(getAllAccounts());
-      break;
-    default:
-      console.log("\x1b[31m", "Invalid call. Please use create or get");
-  }
-}
-
-main(process.argv[2]);

@@ -1,28 +1,25 @@
 import * as fs from "fs";
 
-export default class JSONFileManager {
-  private fileName: string;
+export class JSONFileManager {
+  // Para chumbar o caminho do arquivo que será lido e escrito:
+  private fileName: string = "data.json";
 
-  constructor(fileName: string) {
-    this.fileName = fileName;
-  }
-
-  //readDatabase
-  public getObjectFromFile(): any {
+  // LER O ARQUIVO DATA BASE (data.json)
+  public readDataBase(): any {
     try {
-      const fileData: string = fs.readFileSync("./data.json").toString();
-      return JSON.parse(fileData);
+      return JSON.parse(fs.readFileSync(`./${this.fileName}`).toString());
     } catch (error) {
       console.log("Erro ao ler a base de dados: " + error.message);
       return [];
     }
   }
 
-  // writeToDatabase
-  public writeObjectToFile(objectToSave: any): void {
+  // ESCREVER NO ARQUIVO DATA BASE (data.json)
+  public writeToDataBase(objectToSave: any): void {
     try {
+      // os parâmetros (null, 2) servem para identação do data.json quando o usuário finalizar sua ação
       const dataAsString: string = JSON.stringify(objectToSave, null, 2);
-      fs.writeFileSync("./data.json", dataAsString);
+      fs.writeFileSync(`./${this.fileName}`, dataAsString);
     } catch (error) {
       console.log("Erro ao salvar os dados: " + error.message);
     }

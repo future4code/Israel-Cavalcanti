@@ -1,37 +1,38 @@
 [
   {
-    "name": "João",
-    "cpf": "1234",
-    "birthDate": "1996-11-09T02:00:00.000Z",
-    "balance": 0,
-    "transactions": []
-  },
-  {
-    "name": "Robson",
-    "cpf": "1234",
-    "birthDate": "1996-11-09T02:00:00.000Z",
-    "balance": 0,
-    "transactions": []
-  },
-  {
-    "name": "Arturito",
-    "cpf": "1234",
-    "birthDate": "1996-11-09T02:00:00.000Z",
-    "balance": 0,
-    "transactions": []
-  },
-  {
-    "name": "Jorginho",
-    "cpf": "1234",
-    "birthDate": "1996-11-09T02:00:00.000Z",
-    "balance": 0,
-    "transactions": []
-  },
-  {
     "name": "Israel",
-    "cpf": "123",
-    "birthDate": "1994-05-05T03:00:00.000Z",
-    "balance": 0,
-    "transactions": []
+    "cpf": "0011",
+    "birthDate": "05/05/1994",
+    "balance": 1000,
+    "transactions": [
+      {
+        "value": 1500,
+        "description": "Depósito de dinheiro",
+        "date": "05/08/2020"
+      },
+      {
+        "value": -500,
+        "description": "Pagar contas",
+        "date": "05/08/2020"
+      },
+      {
+        "value": 200,
+        "description": "Transferência entre contas",
+        "date": "05/08/2020"
+      }
+    ]
+  },
+  {
+    "name": "Joao",
+    "cpf": "001441",
+    "birthDate": "04/09/1990",
+    "balance": 500,
+    "transactions": [
+      {
+        "value": -200,
+        "description": "Transferência entre contas",
+        "date": "05/08/2020"
+      }
+    ]
   }
 ]
