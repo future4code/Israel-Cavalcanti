@@ -1,0 +1,52 @@
+COMANDO     npm init                        Cria o package.json
+PASTA       src                             Pasta para inserir os arquivos TS
+PASTA       build                           Pasta para os arquivos JS
+ARQUIVO     data.json                       Arquivo que serve de banco de dados interno
+ARQUIVO     .gitignore                      Para impedir de enviar a pasta build e package.json 
+COMANDO     tsc -init                       Para criar o tsconfig.json 
+COMANDO     npm i ts-node @types/node       Para instalar o ts-node e o types do node
+COMANDO     npm i moment                    Para instalar o moment
+
+
+AJUSTES
+tsconfig        "outDir": "./build" -- "rootDir": "./src" -- "removeComments": true -- "noImplicityAny: true -- //L51, 66 e 67 "esModuleInterop", "skipLibCheck", "forceConsistentSasingInFileNames"
+package.json    script -> "start": "ts-node src/index.ts"
+.gitignore      node_modules/ build/
+data.json       Iniciar o arquivo com um array vazio: []
+
+
+========================================================================================
+
+
+ESCOPO - SISTEMA BANCÁRIO
+
+Account
+    name
+    cpf             (1 por conta criada)
+    birthDate       (Precisa ser maior de 18)
+    balance         (Saldo da conta)
+    transaction     (Tipos de transação)
+
+        value           (Não pode gastar mais que o saldo atual -> "< balance")
+        description     (Descrição da transação)
+        date            (Não pode ser uma data que já passou -> ">= today")
+
+FUNCIONALIDADES
+
+    CRIAR CONTA 
+    createAccount (name, cpf, birthDate)
+
+    MOSTRAR SALDO
+    getBalance (name, cpf)
+
+    ADICIONAR SALDO
+    addBalance (name, cpf, value, today, "TIPO DE TRANSAÇÃO")
+
+    ATUALIZAR SALDO
+    updateBalance ()
+
+    PAGAR CONTA
+    payBill (cpf, value, description, date)
+
+    REALIZAR TRANSFERÊNCIA
+    makeTransfer (depositaryName, depositaryCpf, recipientName, recipientCpf, value)
