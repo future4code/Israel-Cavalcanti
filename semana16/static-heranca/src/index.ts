@@ -1,7 +1,7 @@
 import { User } from "./class/User";
 import { Customer } from "./class/Customer";
-import { getDiffieHellman } from "crypto";
 import { Employee } from "./class/Employee";
+import { Seller } from "./class/Seller";
 import moment from "moment";
 
 // No index ficam as instâncias
@@ -108,3 +108,64 @@ console.log(
   "O valor total do salário com benefícios é: ",
   newEmpolyee.calculateTotalSalary()
 );
+
+// =========================================================
+// EX 8. Criar classe Seller
+// a. Crie uma instância da classe Seller. Você vai reparar que essa classe já possui um construtor, pois quando não colocamos um construtor na classe filha, ela herda o construtor da classe Pai. Quais parâmetros você teve que passar para esse construtor?
+
+// ID, EMAIL, NAME, PASSWORD, ADMISSIONDATE e BASESALARY -> Todos os parâmetros necessários para criar uma instância da classe Employee, pois a classe Seller é filha da Employee e não possui um construtor próprio. Dessa forma o seu construtor será herdado da sua classe pai:
+const newSeller: Seller = new Seller(
+  "04",
+  "seller@labenu.com",
+  "Seller Costa",
+  "seller12345",
+  moment("07/08/2020", "DD/MM/YYYY").format("DD/MM/YYYY"),
+  2100
+);
+
+// b. Imprima todas as informações da instância que você criou individualmente (ou seja, cada uma em uma linha própria). O que você conseguiu imprimir? O que não conseguiu? Por quê?
+
+// O único item que não é possível imprimir é o PASSWORD, pois é um atributo PRIVATE que não possui um GETTER.
+
+console.log("Id do novo vendedor: ", newSeller.getId());
+console.log("Nome do novo vendedor: ", newSeller.getName());
+console.log("Email do novo vendedor: ", newSeller.getEmail());
+console.log(
+  "A data de admissão do novo vendedor é: ",
+  newSeller.getAdmissionDate()
+);
+console.log("O salário do novo vendedor é: ", newSeller.getBaseSalary());
+
+// =========================================================
+// EX 9. Criar nova propriedade na classe Seller
+// a. Agora, teste o método setter, atualizando esse valor para o que você quiser. É possível imprimir no terminal o valor salesQuantity da instância que você criou? Por quê?
+
+// Não é possível, pois é uma propriedade PRIVATE e nào possui um GETTER para buscar o valor solicitado.
+
+console.log("Valor antes de atualizar: ", newSeller.getSalesQuantity());
+newSeller.setSalesQuantity(30);
+console.log("Valor depois de atualizar: ", newSeller.getSalesQuantity());
+
+// =========================================================
+// EX 10. OVERRIDE(sobrepor)
+
+const newSeller2: Seller = new Seller(
+  "05",
+  "seller02@labenu.com",
+  "Seller02",
+  "seller020202",
+  moment("01/05/2020", "DD/MM/YYYY").format("DD/MM/YYYY"),
+  200
+);
+
+// a. Crie um novo vendedor. Atribua a ele um valor para a salesQuantity. Convoque a função calculateTotalSalary e  imprima no terminal o valor. O que foi impresso no terminal? Por quê?
+
+// O valor total do novo seller. Isso acontece, pois, a classe Seller consegue sobrescrever a função do seu pai (calculateTotalSalary), alterando o seu cálculo com um novo formato.
+
+newSeller2.setSalesQuantity(200);
+console.log("Salário total do Seller02: ", newSeller2.calculateTotalSalary());
+
+// =========================================================
+// EX 11. Propriedades estáticas (valor do benefício e valor da comissão são estáticos!)
+
+// Agora com os valores static nas classes Employee e Seller, os valores devem continuar iguais com base nas instâncias criadas.
