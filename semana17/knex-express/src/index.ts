@@ -178,75 +178,79 @@ app.get("/actor", async (req: Request, res: Response) => {
 // EX 4
 
 app.put("/actor", async (req: Request, res: Response) => {
-    try{
-        await createActor(
-            req.body.id,
-            req.body.name,
-            req.body.salary,
-            new Date(req.body.dateOfBirth),
-            req.body.salary
-        )
-        res.status(200).send();
-    }catch(err){
-        res.status(400).send({message: err.message,})
-    }
-})
+  try {
+    await createActor(
+      req.body.id,
+      req.body.name,
+      req.body.salary,
+      new Date(req.body.dateOfBirth),
+      req.body.salary
+    );
+    res.status(200).send();
+  } catch (err) {
+    res.status(400).send({ message: err.message });
+  }
+});
 
 // EX 4.a
 app.post("/actor", async (req: Request, res: Response) => {
-    try {
-        await updateSalaryByIdAndSalary(req.body.id, req.body.salary);
-        res.status(200).send({
-            message: "Success POST"
-        }
-    } catch (error) {
-        res.status(400).send({
-            message: error.message
-        })
-    }
-})
+  try {
+    await updateSalaryByIdAndSalary(req.body.id, req.body.salary);
+    res.status(200).send({
+      message: "Success POST",
+    });
+  } catch (error) {
+    res.status(400).send({
+      message: error.message,
+    });
+  }
+});
 
 //EX 4.b
 app.delete("/actor/:id", async (req: Request, res: Response) => {
-    try {
-        await deleteActorById(req.params.id)
-    } catch (error) {
-        res.status(400).send({
-            message: error.message
-        })
-    }
-})
+  try {
+    await deleteActorById(req.params.id);
+  } catch (error) {
+    res.status(400).send({
+      message: error.message,
+    });
+  }
+});
 
 // EX 5
 const createMovie = async (
-    id: string,
-    title: string,
-    synopsis: string,
-    releaseDate: Date,
-    playingLimitDate: Date
+  id: string,
+  title: string,
+  synopsis: string,
+  releaseDate: Date,
+  playingLimitDate: Date
 ) => {
-    await connection.insert({
-        id, title, synopsis, release_date: releaseDate, playing_limit_date: playingLimitDate,
+  await connection
+    .insert({
+      id,
+      title,
+      synopsis,
+      release_date: releaseDate,
+      playing_limit_date: playingLimitDate,
     })
-    .into("Movie")
-}
-
+    .into("Movie");
+};
 
 app.post("/movie", async (req: Request, res: Response) => {
-    try {
-        await createMovie(
-            req.body.id,
-            req.body.title,
-            req.body.synopsis,
-            req.body.releaseDate,
-            req.body.playingLimitDate
-        );
-        res.status(200).send({
-            message: "Sucess POST"
-        })
-    } catch (error) {
-        res.status(400).send({
-            message: error.message
-        })
-    }
-})
+  try {
+    await createMovie(
+      req.body.id,
+      req.body.title,
+      req.body.synopsis,
+      req.body.releaseDate,
+      req.body.playingLimitDate
+    );
+    res.status(200).send({
+      message: "Sucess POST",
+    });
+  } catch (error) {
+    res.status(400).send({
+      message: error.message,
+    });
+  }
+});
