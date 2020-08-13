@@ -320,3 +320,64 @@ app.post("/movie", async (req: Request, res: Response) => {
   "playing_limit_date": "2020-05-05"
 }
 */
+
+//===============================================================
+
+// EX 6
+// FUNÇÃO PARA BUSCAR A TABELA DE FILMES COM LIMITE DE 15:
+const getAllMovies = async (): Promise<any> => {
+  const result = await connection.raw(`
+  
+  SELECT * FROM Movies LIMIT 15
+
+  `);
+  return result[0];
+};
+
+// ENDPOINT (MÉTODO) PARA PEGAR OS 15 FILMES - Path Param (passa direto na URL)
+app.get("/movie/all", async (req: Request, res: Response) => {
+  try {
+    const movies = await getAllMovies();
+
+    res.status(200).send({
+      movies: movies,
+    });
+  } catch (error) {
+    res.status(400).send({
+      message: error.message,
+    });
+  }
+});
+// Passar na URL > 3000/movie/all
+
+//===============================================================
+
+// EX 7
+// FUNÇÃO QUE RECEBE UMA QUERY QUE DEVERÁ TER NO TÍTULO OU SINOPSE DO FILME E ORDENA A LISTA DE TABELAS POR ORDEM DE LANÇAMENTO
+const searchMovies = async (query: string): Promise<any> => {
+  const result = await connection("Movies")
+    .where("title", "LIKE", `%${query}%`)
+    .orWhere("synopsis", "LIKE", `%${query}%`)
+    .orderBy("release_date", "asc");
+  return result;
+};
+
+// ENDPOINT (MÉTODO) PARA PEGAR OS FILMES DE ACORDO COM O searchMovies - Query Param
+app.get("/movie/search", async (req: Request, res: Response) => {
+  try {
+    const movies = await searchMovies(req.query.query as string);
+    res.status(200).send({
+      Movies: movies,
+    });
+  } catch (error) {
+    res.status(400).send({
+      message: error.message,
+    });
+  }
+});
+//FUNCIONOU NO POSTMAN:
+// QUERY PARAMS Exemplos:
+/*
+1- Ou passa direto na URL > 3000/movie/search?query=Dona
+2- Ou adiciona no Query Params KEY = query & Value = Dona
+*/
