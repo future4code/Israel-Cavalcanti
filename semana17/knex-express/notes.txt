@@ -1,0 +1,34 @@
+COMANDO     npm install knex @types/knex
+COMANDO     npm install mysql
+COMANDO     npm install dotenv
+COMANDO     npm install express @types/express
+
+==================================================================
+COMANDO     npm init                        Cria o package.json
+COMANDO     tsc -init                       Para criar o tsconfig.json 
+COMANDO     npm i ts-node @types/node       Para instalar o ts-node e o types do node
+COMANDO     npm i moment                    Para instalar o moment
+PASTA       src                             Pasta para inserir os arquivos TS
+ARQUIVO     .gitignore                      Para impedir de enviar a pasta build e package.json 
+ARQUIVO     data.json                       Arquivo que serve de banco de 
+
+AJUSTES
+
+tsconfig        
+    DESCOMENTAR
+        L17 "outDir": "./build" 
+        L18 "rootDir": "./src" 
+        L21 "removeComments": true 
+        L34 "noImplicityAny: true 
+    
+    CoOMENTAR
+        L51 "esModuleInterop"
+        L66 "skipLibCheck"
+        L67 "forceConsistentSasingInFileNames"
+
+package.json    script -> "start": "ts-node src/index.ts"
+
+.gitignore      node_modules/ build/
+
+data.json       Iniciar o arquivo com um array vazio: []
+
