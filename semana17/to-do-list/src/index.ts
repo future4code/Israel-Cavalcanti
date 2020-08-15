@@ -63,13 +63,12 @@ app.post("/user", async (req: Request, res: Response) => {
       req.body.nickname,
       req.body.email
     );
-
     res.status(200).send({
       message: "Usuário criado com sucesso!",
     });
   } catch (error) {
     res.status(400).send({
-      message: error.message,
+      message: "Erro ao criar novo usuário: " + error.message,
     });
   }
 });
@@ -77,19 +76,53 @@ app.post("/user", async (req: Request, res: Response) => {
 /**************************************************************/
 // FUNÇÃO PARA PEGAR TODOS USUÁRIOS
 const getAllUsers = async (): Promise<any> => {
-  const result = await connection.raw(`
-  SELECT * FROM ToDoListUser
-  `);
-  return result[0];
+  try {
+    const result = await connection.raw(`
+    SELECT * FROM ToDoListUser
+    `);
+    return result[0];
+  } catch (error) {
+    console.log("Erro ao buscar todos usuários: " + error);
+  }
 };
 
 // ENDPOINT PARA VER TODOS USUÁRIOS
 app.get("/user/all", async (req: Request, res: Response) => {
   try {
     const result = await getAllUsers();
-
     res.status(200).send(result);
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).send("Erro ao encontrar todos usuários: " + error.message);
+  }
+});
+
+/**************************************************************/
+// FUNÇÃO PARA PEGAR USUÁRIO PELO ID
+const getUserById = async (id: string): Promise<any> => {
+  try {
+    const result = await connection.raw(`
+    SELECT * FROM ToDoListUser WHERE id = '${id}'
+    `);
+    return result[0];
+  } catch (error) {
+    console.log("Erro ao encontrar id: " + error);
+  }
+};
+
+// ENDPOINT PARA BUSCAR USUÁRIO PELO ID
+app.get("/user/:id", async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const user = await getUserById(id);
+
+  if (user[0] === undefined) {
+    res.status(400).send("Id não encontrado!");
+  } else {
+    try {
+      res.status(200).send(user);
+    } catch (error) {
+      res.status(400).send({
+        message: "id não encontrado" + error.message,
+      });
+    }
   }
 });
