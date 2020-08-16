@@ -137,6 +137,43 @@ app.put("/user/edit/:id", async (req: Request, res: Response) => {
   }
 });
 
+/****************************** EXERCICIO 3 ********************************/
+// FUNÇÃO PARA CRIAR TAREFA
+const createTask = async (
+  userId: string,
+  title: string,
+  description: string,
+  limitDate: Date
+): Promise<any> => {
+  await connection
+    .insert({
+      userId,
+      title,
+      description,
+      limitDate,
+    })
+    .into("ToDoListTask");
+};
+
+// ENDPOINT PARA CRIAR NOVA TAREFA
+app.post("/task", async (req: Request, res: Response) => {
+  try {
+    await createTask(
+      req.body.userId,
+      req.body.title,
+      req.body.description,
+      req.body.limitDate
+    );
+    res.status(200).send({
+      message: "Tarefa criada com sucesso!",
+    });
+  } catch (error) {
+    res.status(400).send({
+      message: "Erro ao criar nova tarefa: " + error.message,
+    });
+  }
+});
+
 /**************************************************************/
 /**************************************************************/
 /********************** DESAFIOS ******************************/
