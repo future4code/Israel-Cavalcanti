@@ -36,33 +36,32 @@ const server = app.listen(process.env.PORT || 3000, () => {
   }
 });
 
-/**************************************************************/
+/****************************** EXERCICIO 1 ********************************/
 // FUNÇÃO PARA CRIAR NOVO USUÁRIO
 const createUser = async (
-  id: string,
   name: string,
   nickname: string,
   email: string
 ): Promise<void> => {
-  await connection
-    .insert({
-      id,
-      name,
-      nickname,
-      email,
-    })
-    .into("ToDoListUser");
+  if (
+    name.replace(" ", "") &&
+    nickname.replace(" ", "") &&
+    email.replace(" ", "")
+  ) {
+    await connection
+      .insert({
+        name,
+        nickname,
+        email,
+      })
+      .into("ToDoListUser");
+  } else throw { message: "Verifique se todos os campos foram peenchidos!" };
 };
 
 // ENDPOINT PARA CRIAR NOVO USUÁRIO
 app.post("/user", async (req: Request, res: Response) => {
   try {
-    await createUser(
-      req.body.id,
-      req.body.name,
-      req.body.nickname,
-      req.body.email
-    );
+    await createUser(req.body.name, req.body.nickname, req.body.email);
     res.status(200).send({
       message: "Usuário criado com sucesso!",
     });
@@ -73,30 +72,7 @@ app.post("/user", async (req: Request, res: Response) => {
   }
 });
 
-/**************************************************************/
-// FUNÇÃO PARA PEGAR TODOS USUÁRIOS
-const getAllUsers = async (): Promise<any> => {
-  try {
-    const result = await connection.raw(`
-    SELECT * FROM ToDoListUser
-    `);
-    return result[0];
-  } catch (error) {
-    console.log("Erro ao buscar todos usuários: " + error);
-  }
-};
-
-// ENDPOINT PARA VER TODOS USUÁRIOS
-app.get("/user/all", async (req: Request, res: Response) => {
-  try {
-    const result = await getAllUsers();
-    res.status(200).send(result);
-  } catch (error) {
-    res.status(400).send("Erro ao encontrar todos usuários: " + error.message);
-  }
-});
-
-/**************************************************************/
+/****************************** EXERCICIO 2 ********************************/
 // FUNÇÃO PARA PEGAR USUÁRIO PELO ID
 const getUserById = async (id: string): Promise<any> => {
   try {
@@ -124,5 +100,68 @@ app.get("/user/:id", async (req: Request, res: Response) => {
         message: "id não encontrado" + error.message,
       });
     }
+  }
+});
+
+/****************************** EXERCICIO 3 ********************************/
+// FUNÇÃO PARA EDITAR USUÁRIO EXISTENTE
+const editUser = async (
+  id: string,
+  name?: string,
+  nickname?: string
+): Promise<any> => {
+  if (id.replace(" ", "") && (name || nickname)) {
+    await connection("ToDoListUser")
+      .update({
+        nickname: nickname,
+        name: name,
+      })
+      .where({ id });
+    console.log(`Usuário atualizado com sucesso!`);
+  } else throw { message: "Erro ao atualizar usuário, verifique os dados!" };
+};
+
+// ENDPOINT PARA ATUALIZAR USUÁRIO EXISTENTE
+app.put("/user/edit/:id", async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const user = await getUserById(id);
+  try {
+    await editUser(req.body.id, req.body.name, req.body.nickname);
+    res.status(200).send({
+      message: "Usuário atualizado com sucesso!",
+    });
+  } catch (error) {
+    res.status(400).send({
+      message: "Erro ao atualizar usuário: " + error.message,
+    });
+  }
+});
+
+/**************************************************************/
+/**************************************************************/
+/********************** DESAFIOS ******************************/
+/**************************************************************/
+/**************************************************************/
+
+/****************************** EXERCICIO 6 ********************************/
+// FUNÇÃO PARA PEGAR TODOS USUÁRIOS
+const getAllUsers = async (): Promise<any> => {
+  try {
+    const result = await connection.raw(`
+    SELECT * FROM ToDoListUser
+    `);
+    return result[0];
+  } catch (error) {
+    console.log("Erro ao buscar todos usuários: " + error);
+  }
+};
+
+// ENDPOINT PARA VER TODOS USUÁRIOS
+app.get("/user/all", async (req: Request, res: Response) => {
+  try {
+    const result = await getAllUsers();
+    res.status(200).send(result);
+  } catch (error) {
+    res.status(400).send("Erro ao encontrar todos usuários: " + error.message);
   }
 });
