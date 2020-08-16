@@ -174,6 +174,37 @@ app.post("/task", async (req: Request, res: Response) => {
   }
 });
 
+/****************************** EXERCICIO 5 ********************************/
+// FUNÇÃO PARA PEGAR TAREFA PELO ID
+const getTaskById = async (userId: string): Promise<any> => {
+  try {
+    const result = await connection.raw(`
+    SELECT * FROM ToDoListTask WHERE userId = '${userId}'
+    `);
+    return result[0];
+  } catch (error) {
+    console.log("Erro ao encontrar id: " + error);
+  }
+};
+
+// ENDPOINT PARA BUSCAR TAREFA PELO ID
+app.get("/task/:id", async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const user = await getTaskById(id);
+
+  if (user[0] === undefined) {
+    res.status(400).send("Id não encontrado!");
+  } else {
+    try {
+      res.status(200).send(user);
+    } catch (error) {
+      res.status(400).send({
+        message: "id não encontrado" + error.message,
+      });
+    }
+  }
+});
+
 /**************************************************************/
 /**************************************************************/
 /********************** DESAFIOS ******************************/
