@@ -5,3 +5,5 @@ export default class IdGenerator {
     return v4();
   }
 }
+
+// console.log("NOVO ID GERADO: " + IdGenerator.execute());

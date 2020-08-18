@@ -2,8 +2,8 @@ import knex from "knex";
 import express from "express";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
-import UserDatabase from "./data/UserDataBase";
-import IdGenerator from "./services/IdGenerator";
+import UserDatabase from "./data/UserDatabase";
+import Authenticator from "./services/Authenticator";
 
 dotenv.config();
 
@@ -31,6 +31,18 @@ const server = app.listen(process.env.PORT || 3003, () => {
   }
 });
 
+// CRIAR NOVO USUÁRIO:
 const user: UserDatabase = new UserDatabase();
 
-user.createUserDb("israel@labenu.com", "password1234");
+// user.createUserDb("israel@labenu.com", "password1234");
+
+/**************************************************/
+
+// GERAR TOKEN
+const token = Authenticator.generateToken({ id: "bananinha" });
+// console.log("NOVO TOKEN GERADO: " + token);
+
+// VERIFICAR SE O TOKEN É VÁLIDO
+const tokenData = Authenticator.getTokenData(token);
+// {id: bananinha, iat = momento de criação, exp: momento de expiração}
+// console.log(tokenData);
