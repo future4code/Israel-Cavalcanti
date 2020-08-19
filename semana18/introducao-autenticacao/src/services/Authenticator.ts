@@ -31,4 +31,13 @@ export default class Authenticator {
       );
     return tokenData as AuthenticationData;
   }
+
+  // RECEBER O TOKEN E DEVOLVER AS INFORMAÇÕES DO USUÁRIO
+  public getData(token: string): AuthenticationData {
+    const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
+    const result = {
+      id: payload.id,
+    };
+    return result;
+  }
 }

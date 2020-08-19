@@ -56,10 +56,14 @@ app.post("/user/signup", signup);
 
 /**************************************************/
 // BUSCAR INFOS DO USUÁRIO COM O EMAIL INFORMADO
-(async () => {
-  console.log(await user.getUserByEmail("israel@labenu.com"));
-})();
+// (async () => {
+//   console.log(await user.getUserByEmail("israel@labenu.com"));
+// })();
 
 /**************************************************/
 // LOGIN
 app.post("/user/login", login);
+
+/**************************************************/
+const getData = Authenticator.getTokenData(token);
+console.log(getData);

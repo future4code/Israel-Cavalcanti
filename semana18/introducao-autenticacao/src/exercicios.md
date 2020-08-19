@@ -196,3 +196,24 @@ export default async function login(req: Request, res: Response) {
   }
 }
 ```
+
+#### EXERCICIO 7 - ENDPOINT LOGIN
+
+a) como não se sabe o conteúdo da resposta da requisiçào, "as any" serve para que qualquer valor retornado seja verificado.
+
+b)
+
+```
+export class Authenticator {
+  private static EXPIRES_IN = "1min";
+  public generateToken(input: AuthenticationData): string {
+		// ...
+  }
+   public getData(token: string): AuthenticationData {
+    const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
+    const result = {
+      id: payload.id,
+    };
+    return result;
+  }
+```
