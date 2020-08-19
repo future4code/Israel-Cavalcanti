@@ -6,7 +6,7 @@ export default class UserDatabase {
 
   private static TABLE_NAME: string = "User";
 
-  public async createUserDb(email: string, password: string): Promise<void> {
+  public async createUser(email: string, password: string): Promise<void> {
     await connection.raw(`
     INSERT INTO ${UserDatabase.TABLE_NAME} (id, email, password)
     VALUES(

@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import UserDatabase from "./data/UserDatabase";
 import Authenticator from "./services/Authenticator";
+import signup from "./endpoints/signup";
 
 dotenv.config();
 
@@ -46,3 +47,7 @@ const token = Authenticator.generateToken({ id: "bananinha" });
 const tokenData = Authenticator.getTokenData(token);
 // {id: bananinha, iat = momento de criação, exp: momento de expiração}
 // console.log(tokenData);
+
+/**************************************************/
+export const userTableName = "User";
+app.post("/user/signup", signup);

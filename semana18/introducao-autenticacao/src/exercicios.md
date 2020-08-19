@@ -90,3 +90,46 @@ export default class Authenticator {
   }
 }
 ```
+
+#### EXERCICIO 4 - ENDPOINT SIGNUP
+
+a)
+
+```
+export default async function signup(req: Request, res: Response) {
+  try {
+    const { email, password } = req.body;
+    const id = IdGenerator.execute();
+
+    await connection.insert({ id, email, password }).into(userTableName);
+
+    const token = Authenticator.generateToken({ id });
+
+    res.status(200).send({
+      message: "Usuário criado com sucesso!",
+      token,
+    });
+  } catch (error) {
+    console.log(error.message);
+    res.status(400).send({
+      message: error.sqlMessage || error.message,
+    });
+  }
+}
+```
+
+b)
+
+```
+if (!req.body.email || req.body.email.indexOf("@") === -1) {
+      throw new Error("Invalid email");
+}
+```
+
+c)
+
+```
+if (!req.body.password || req.body.password.length < 6) {
+      throw new Error("Invalid password");
+}
+```
