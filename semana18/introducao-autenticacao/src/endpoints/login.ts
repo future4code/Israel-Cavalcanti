@@ -3,25 +3,30 @@ import { connection, userTableName } from "../index";
 import Authenticator from "../services/Authenticator";
 import IdGenerator from "../services/IdGenerator";
 
-export default async function signup(req: Request, res: Response) {
+export default async function login(req: Request, res: Response) {
   try {
     const { email, password } = req.body;
-    const id = IdGenerator.execute();
+    const result = await connection(userTableName).select().where({
+      email,
+      password,
+    });
 
     if (!req.body.email || req.body.email.indexOf("@") === -1) {
       throw new Error("Email inválido");
     }
 
-    if (!req.body.password || req.body.password.lenght < 6) {
-      throw new Error("Senha inválida: A senha deve ter mais de 6 digitos");
+    if (!result[0]) {
+      throw new Error(
+        "Login não encontrado: Verifique se o usuário e a senha estão corretos"
+      );
     }
 
-    await connection.insert({ id, email, password }).into(userTableName);
-
-    const token = Authenticator.generateToken({ id });
+    const token = Authenticator.generateToken({
+      id: result[0].id,
+    });
 
     res.status(200).send({
-      message: "Usuário criado com sucesso!",
+      message: "Usuário logado com sucesso!",
       token,
     });
   } catch (error) {

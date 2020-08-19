@@ -133,3 +133,26 @@ if (!req.body.password || req.body.password.length < 6) {
       throw new Error("Invalid password");
 }
 ```
+
+#### EXERCICIO 5 - ENDPOINT LOGIN
+
+a)
+
+```
+public async getUserByEmail(email: string): Promise<any> {
+    const result = await connection
+      .select("*")
+      .from(UserDatabase.TABLE_NAME)
+      .where({ email });
+
+    return result[0];
+  }
+```
+
+b)
+
+```
+(async () => {
+  console.log(await user.getUserByEmail("israel@labenu.com"));
+})();
+```

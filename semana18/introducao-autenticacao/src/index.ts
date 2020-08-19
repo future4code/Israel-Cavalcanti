@@ -5,6 +5,7 @@ import { AddressInfo } from "net";
 import UserDatabase from "./data/UserDatabase";
 import Authenticator from "./services/Authenticator";
 import signup from "./endpoints/signup";
+import login from "./endpoints/login";
 
 dotenv.config();
 
@@ -49,5 +50,16 @@ const tokenData = Authenticator.getTokenData(token);
 // console.log(tokenData);
 
 /**************************************************/
+//SIGNUP
 export const userTableName = "User";
 app.post("/user/signup", signup);
+
+/**************************************************/
+// BUSCAR INFOS DO USUÁRIO COM O EMAIL INFORMADO
+(async () => {
+  console.log(await user.getUserByEmail("israel@labenu.com"));
+})();
+
+/**************************************************/
+// LOGIN
+app.post("/user/login", login);

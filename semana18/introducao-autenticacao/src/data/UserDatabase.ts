@@ -15,4 +15,17 @@ export default class UserDatabase {
       '${password}'
     )`);
   }
+
+  // PARA ACESSAR AS INFORMAÇÕES DO USUÁRIO ATRAVÉS DO EMAIL
+  public async getUserByEmail(email: string): Promise<any> {
+    if (!email || email.indexOf("@") === -1) {
+      throw new Error("Email inválido, verifique novamente");
+    }
+    const result = await connection
+      .select("*")
+      .from(UserDatabase.TABLE_NAME)
+      .where({ email });
+
+    return result[0];
+  }
 }
