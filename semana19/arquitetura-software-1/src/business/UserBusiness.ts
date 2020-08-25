@@ -77,4 +77,19 @@ export class UserBusiness {
 
     return user;
   }
+
+  /***********************************************************/
+
+  public async deleteUser(id: string, token: string): Promise<any> {
+    const userDatabase = new UserDatabase();
+
+    const authenticator = new Authenticator();
+    const verifiedToken = authenticator.getData(token);
+
+    if (!verifiedToken) {
+      throw new Error("Apenas administradores podem deletar usuários!");
+    }
+
+    return await userDatabase.deleteUser(id);
+  }
 }

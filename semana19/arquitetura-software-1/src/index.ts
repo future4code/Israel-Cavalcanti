@@ -4,6 +4,7 @@ import { AddressInfo } from "net";
 import { signup } from "./endpoints/signup";
 import { login } from "./endpoints/login";
 import { getUserProfile } from "./endpoints/getUserProfile";
+import { deleteUser } from "./endpoints/deleteUser";
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 app.post("/signup", signup);
 app.post("/login", login);
 app.get("/all", getUserProfile);
+app.delete("/:id", deleteUser);
 
 app.get("/teste", async (req: Request, res: Response) => {
   try {
