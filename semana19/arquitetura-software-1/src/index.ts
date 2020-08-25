@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import express, { Request, Response } from "express";
 import { AddressInfo } from "net";
 import { signup } from "./endpoints/signup";
+import { login } from "./endpoints/login";
 
 dotenv.config();
 
@@ -9,6 +10,7 @@ const app = express();
 app.use(express.json());
 
 app.post("/signup", signup);
+app.post("/login", login);
 
 app.get("/teste", async (req: Request, res: Response) => {
   try {

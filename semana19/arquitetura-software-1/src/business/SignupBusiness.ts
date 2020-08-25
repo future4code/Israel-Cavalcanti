@@ -3,7 +3,7 @@ import { HashManager } from "../services/HashManager";
 import { UserDatabase } from "../data/UserDatabase";
 import { Authenticator } from "../services/Authenticator";
 
-export class UserBusiness {
+export class SignupBusiness {
   public async signup(
     name: string,
     email: string,

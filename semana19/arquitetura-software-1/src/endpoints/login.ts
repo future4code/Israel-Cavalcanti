@@ -1,25 +1,23 @@
 import { Request, Response } from "express";
 import { BaseDatabase } from "../data/BaseDatabase";
-import { SignupBusiness } from "../business/SignupBusiness";
+import { LoginBusiness } from "../business/LoginBusiness";
 
-export const signup = async (req: Request, res: Response) => {
+export const login = async (req: Request, res: Response) => {
   try {
-    const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
-    const role = req.body.role;
 
     // GERENCIADOR DAS REGRAS DE NEGÓCIOS
-    const signupBusiness = new SignupBusiness();
-    const token = await signupBusiness.signup(name, email, password, role);
+    const loginBusiness = new LoginBusiness();
+    const token = await loginBusiness.login(email, password);
 
     res.status(200).send({
-      message: "Usuário criado com sucesso",
+      message: "Login realizado com sucesso",
       token,
     });
   } catch (error) {
     res.status(400).send({
-      message: "Erro ao criar usuário",
+      message: "Erro ao fazer login",
       error: error.message,
     });
   }
