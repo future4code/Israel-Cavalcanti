@@ -3,7 +3,7 @@ import { HashManager } from "../services/HashManager";
 import { UserDatabase } from "../data/UserDatabase";
 import { Authenticator } from "../services/Authenticator";
 
-export class SignupBusiness {
+export class UserBusiness {
   public async signup(
     name: string,
     email: string,
@@ -39,5 +39,42 @@ export class SignupBusiness {
     const token = authenticator.generateToken({ id });
 
     return token;
+  }
+
+  /***********************************************************/
+
+  public async login(email: string, password: string): Promise<string> {
+    // INSERIR USUÁRIO NO BANCO
+    const userDataBase = new UserDatabase();
+    const user = await userDataBase.getUserByEmail(email);
+
+    // CRIPTOGRAFAR SENHA
+    const hashManager = new HashManager();
+    const isPasswordCorrect = await hashManager.compare(
+      password,
+      user.password
+    );
+
+    if (!isPasswordCorrect) {
+      throw new Error("Usuário ou senha informado não existe(m)!");
+    }
+
+    // AUTENTICAÇÃO DO ID e GERAR NOVO TOKEN
+    const authenticator = new Authenticator();
+    const token = authenticator.generateToken({ id: user.id });
+
+    return token;
+  }
+
+  /***********************************************************/
+
+  public async getUserProfile(token: string): Promise<any> {
+    const authenticator = new Authenticator();
+    const authenticationData = authenticator.getData(token);
+
+    const userDataBase = new UserDatabase();
+    const user = await userDataBase.getUserById(authenticationData.id);
+
+    return user;
   }
 }

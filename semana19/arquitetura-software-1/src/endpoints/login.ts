@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { BaseDatabase } from "../data/BaseDatabase";
-import { LoginBusiness } from "../business/LoginBusiness";
+import { UserBusiness } from "../business/UserBusiness";
 
 export const login = async (req: Request, res: Response) => {
   try {
@@ -8,8 +8,8 @@ export const login = async (req: Request, res: Response) => {
     const password = req.body.password;
 
     // GERENCIADOR DAS REGRAS DE NEGÓCIOS
-    const loginBusiness = new LoginBusiness();
-    const token = await loginBusiness.login(email, password);
+    const userBusiness = new UserBusiness();
+    const token = await userBusiness.login(email, password);
 
     res.status(200).send({
       message: "Login realizado com sucesso",

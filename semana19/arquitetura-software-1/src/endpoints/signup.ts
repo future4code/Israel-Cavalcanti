@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { BaseDatabase } from "../data/BaseDatabase";
-import { SignupBusiness } from "../business/SignupBusiness";
+import { UserBusiness } from "../business/UserBusiness";
 
 export const signup = async (req: Request, res: Response) => {
   try {
@@ -10,8 +10,8 @@ export const signup = async (req: Request, res: Response) => {
     const role = req.body.role;
 
     // GERENCIADOR DAS REGRAS DE NEGÓCIOS
-    const signupBusiness = new SignupBusiness();
-    const token = await signupBusiness.signup(name, email, password, role);
+    const userBusiness = new UserBusiness();
+    const token = await userBusiness.signup(name, email, password, role);
 
     res.status(200).send({
       message: "Usuário criado com sucesso",

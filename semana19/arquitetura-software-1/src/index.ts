@@ -3,6 +3,7 @@ import express, { Request, Response } from "express";
 import { AddressInfo } from "net";
 import { signup } from "./endpoints/signup";
 import { login } from "./endpoints/login";
+import { getUserProfile } from "./endpoints/getUserProfile";
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ app.use(express.json());
 
 app.post("/signup", signup);
 app.post("/login", login);
+app.get("/all", getUserProfile);
 
 app.get("/teste", async (req: Request, res: Response) => {
   try {
